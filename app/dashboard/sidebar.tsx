@@ -29,7 +29,7 @@ function Sidebar({ open, isOpen,activePage, setActivePage}:SidebarProps) {
   return (
     <div style={{
       transition: 'margin-left 0.3s ease,width 0.3s ease',
-    }} className="h-[100vh] flex flex-col items-center p-5 gap-4 border-r">
+    }} className="h-[100vh] hidden md:flex flex-col items-center p-5 gap-4 border-r">
       <Menue
         Icon={DashboardIcon}
         isOpen={isOpen}

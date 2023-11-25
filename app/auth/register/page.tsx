@@ -128,8 +128,6 @@ function Register() {
                 onBlur={formik.handleBlur}
                 error={formik.touched.academicSession && Boolean(formik.errors.academicSession)}
               >
-                <MenuItem value={10}>2020/2021</MenuItem>
-                <MenuItem value={20}>2021/2022</MenuItem>
                 <MenuItem value={30}>2022/2023</MenuItem>
               </Select>
             </FormControl>

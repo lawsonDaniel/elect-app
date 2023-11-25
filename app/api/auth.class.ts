@@ -2,8 +2,8 @@ import api from "."
 class Auth {
     public login = async(data:any)=>{
         try{
-            const test = await api.get('/auth/login')
-            console.log(test)
+            const test = await api.post('/auth/login', data);
+            return test
         }catch(err:any){
             throw new Error(err)
         }
