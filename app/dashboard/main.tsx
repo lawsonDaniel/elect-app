@@ -5,7 +5,8 @@ import './Main.css'; // Create a CSS file for transitions
 
 import Overview from './pages/overView';
 import Chat from './pages/chat';
-import Message from './pages/message';
+import Message from './pages/message/message';
+import Article from './pages/article';
 
 function Main({ sideBarOpen, activePage }: any) {
   return (
@@ -16,6 +17,7 @@ function Main({ sideBarOpen, activePage }: any) {
             {activePage === 'overview' && <Overview />}
             {activePage === 'chat' && <Chat />}
             {activePage === 'message' && <Message />}
+            {activePage === 'article' && <Article />}
           </div>
         </CSSTransition>
       </TransitionGroup>

@@ -132,7 +132,7 @@ useEffect(()=>{
           </div>
         </Box>
       </Box>
-      <Box ref={chatBoxRef} style={{
+      {ActivePerson && <Box ref={chatBoxRef} style={{
         height:"calc(100vh - 140px)",
       }} className="w-full bg-[#555] p-3 flex flex-col gap-4 overflow-y-auto overflow-x-none">
         {
@@ -143,8 +143,8 @@ useEffect(()=>{
             })
         }
     
-      </Box>
-      <Box className="w-full h-[60px] border-t  bottom-0 bg-[#eee] p-4 gap-3 flex items-center justify-center">
+      </Box>}
+      {ActivePerson&&<Box className="w-full h-[60px] border-t  bottom-0 bg-[#eee] p-4 gap-3 flex items-center justify-center">
         <MoodIcon className='text-[24px]'/>
         <input onKeyDown={(e)=>{
           if(e.key === 'Enter'){
@@ -153,7 +153,7 @@ useEffect(()=>{
           
         }} value={chat} onChange={(e:React.ChangeEvent<HTMLInputElement>)=> handleChat(e)}  className="w-full bg-[#ddd] h-[40px] p-2 rounded-lg outline-none" placeholder="Type a message"/>
         {chat && <SendIcon onClick={sendMessage}/>}
-      </Box>
+      </Box> }
     </Box>
   );
 }
