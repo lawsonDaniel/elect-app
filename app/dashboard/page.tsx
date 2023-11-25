@@ -13,7 +13,7 @@ function Page() {
    <Box className="flex w-full">
         <Sidebar isOpen={sideBarOpen} open={setSideBarOpen} activePage={activePage} setActivePage={setActivePage}/>
         <Box className="flex flex-col w-full">
-        {/* <Header  sideBarOpen={sideBarOpen} setSideBarOpen={setSideBarOpen}/> */}
+         {/* <Header  sideBarOpen={sideBarOpen} setSideBarOpen={setSideBarOpen}/>  */}
         <Main  sideBarOpen={sideBarOpen} activePage={activePage} />
         </Box>
        

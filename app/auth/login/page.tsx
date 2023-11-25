@@ -9,9 +9,31 @@ import {
     Button
 } from "@mui/material"
 import Link from 'next/link';
+import { Authclass } from '@/app/api/auth.class';
+import { useFormik } from 'formik';
+import * as Yup from 'yup';
 
 function Login() {
     const [alignment, setAlignment] = useState('web');
+// form controll
+const validationSchema = Yup.object().shape({
+  email: Yup.string()
+    .matches(/^[a-zA-Z0-9._%+-]+@unijos\.edu\.ng$/, 'Invalid email format. Must be in the format value@unijos.edu.ng')
+    .required('Email is required'),
+  password: Yup.string().required('Password is required'),
+});
+
+const formik = useFormik({
+  initialValues: {
+    email: '',
+    password: '',
+  },
+  validationSchema: validationSchema,
+  onSubmit: (values) => {
+    // Handle form submission here
+    console.log(values);
+  },
+});
 
   const handleChange = (
     event: React.MouseEvent<HTMLElement>,
@@ -31,7 +53,7 @@ function Login() {
                             <li>Click the activation link sent to your email if your registration has not been confirmed to proceed with the registration</li>
                         </ul>
                     </Box>
-                    <Box className="w-full p-[40px] flex flex-col gap-[10px] ">
+                    <Box component="form" onSubmit={formik.handleSubmit} className="w-full p-[40px] flex flex-col gap-[10px] ">
                         {/* second part */}
                         <Typography className="text-[#08A1D7] text-[16px] text-center mb-2">Please enter your 
                             <br/>Login Details.</Typography>
@@ -47,9 +69,32 @@ function Login() {
                                 <ToggleButton className='w-[100px]' value="android">Staff</ToggleButton>
                                 </ToggleButtonGroup>
 
-                                <TextField className='w-full mt-[5px]' id="outlined-basic" label="Email" variant="outlined" />
-                                <TextField className='w-full' id="outlined-basic" type='password' label="Password" variant="outlined" />
-                                <Button className='bg-[#08A1D7] hover:bg-[#08A1D7] text-[#fff] h-[56px]' variant="contained">Login</Button>
+                                <TextField 
+                                  className='w-full mt-[5px]'
+                                  id="email"
+                                  name="email"
+                                  label="Email"
+                                  variant="outlined"
+                                  value={formik.values.email}
+                                  onChange={formik.handleChange}
+                                  onBlur={formik.handleBlur}
+                                  error={formik.touched.email && Boolean(formik.errors.email)}
+                                  helperText={formik.touched.email && formik.errors.email}
+                                />
+                                <TextField 
+                                  className='w-full'
+                                  id="password"
+                                  name="password"
+                                  type='password'
+                                  label="Password"
+                                  variant="outlined"
+                                  value={formik.values.password}
+                                  onChange={formik.handleChange}
+                                  onBlur={formik.handleBlur}
+                                  error={formik.touched.password && Boolean(formik.errors.password)}
+                                  helperText={formik.touched.password && formik.errors.password}
+                                />
+                                <Button type="submit" className='bg-[#08A1D7] hover:bg-[#08A1D7] text-[#fff] h-[56px]' variant="contained">Login</Button>
                                 <Button className="border text-[#636161] border-[#A4A4A4] h-[56px] mt-2" variant="outlined">Recover Account</Button>
                                 <Typography className="mt-5 text-center text-[12px]">Don’t have an account? <Link href="./register" className='text-[#08A1D7]font-thin'>Register</Link></Typography>
                     </Box>
