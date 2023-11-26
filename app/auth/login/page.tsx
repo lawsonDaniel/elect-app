@@ -14,6 +14,7 @@ import Link from 'next/link';
 import { Authclass } from '@/app/api/auth.class';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
+import { setAuthUser } from '@/util/auth';
 
 function Login() {
   const [userType, setUserType] = useState('staff');
@@ -51,6 +52,7 @@ function Login() {
         }else{
           console.log(res?.data?.data?.verified,'data verified')
             if(res?.data?.data?.verified){
+              setAuthUser(res?.data?.data)
               window.location.href = "/dashboard";
             }else{
               window.location.href = "emailVerification";
