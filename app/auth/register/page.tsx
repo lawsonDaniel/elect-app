@@ -73,6 +73,7 @@ function Register() {
         setErrorMessage(res?.data?.message)
       }else{
         setSuccessMessage(res?.data?.message)
+        window.location.href = "emailVerification";
       }
       setIsLoading(false)
       console.log(res)
@@ -108,7 +109,7 @@ function Register() {
             {
               successMessage && <Alert severity="success">
               <AlertTitle>Registration Successfull</AlertTitle>
-              <strong>{successMessage}</strong> -- <Link href="/auth/login">Login</Link>
+              <strong>{successMessage}</strong> --  activation link sent to your email
             </Alert>
             }
             <Typography className="text-[#08A1D7] text-[16px] text-center mb-2">

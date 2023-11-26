@@ -49,7 +49,12 @@ function Login() {
         if (!res?.data?.status) {
           setErrorMessage(res?.data?.message)
         }else{
-          setSuccessMessage(res?.data?.message)
+          console.log(res?.data?.data?.verified,'data verified')
+            if(res?.data?.data?.verified){
+              window.location.href = "/dashboard";
+            }else{
+              window.location.href = "emailVerification";
+            }
         }
         setIsLoading(false)
         console.log(res)
@@ -89,7 +94,7 @@ function Login() {
              {
               successMessage && <Alert severity="success">
               <AlertTitle>Login Successfull</AlertTitle>
-              <strong>{successMessage}</strong> -- you would be redirected to the dashboard
+              <strong>{successMessage}</strong> 
             </Alert>
             }
             <Typography className="text-[#08A1D7] text-[16px] text-center mb-2">Please enter your

@@ -33,8 +33,8 @@ function Header() {
     <Box className="w-full  flex items-center justify-between p-2 absolute top-0 text-white z-20">
         <img className="w-[184px] h-[33px] object-contain " src="/logo.png" alt="logo" />
         <Box className="p-2  flex justify-center items-center gap-3">
-        <Box className="flex gap-5 hover:text-[#eee] text-thin justify-center items-center mt-1  text-white h-[45px]">
-         <a  className="text-[#fff] text-[]" href="/">Home</a>
+        <Box className="flex text-[#333] gap-5 hover:text-[#444] text-thin justify-center items-center mt-1  text-white h-[45px]">
+         <a  className="" href="/">Home</a>
          <a href="/about">About</a>
         <a href="#">Contact</a>
         <a href="#">Social</a>

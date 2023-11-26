@@ -16,6 +16,14 @@ class Auth {
             throw new Error(err)
         }
     }
+    public resendOtp = async(data:string)=>{
+        try{
+            const res = await api.get(`/auth/resend-otp/${data}`)
+            return res
+        }catch(err:any){
+            throw new Error(err)
+        }
+    }
 }
 
 export const Authclass = new Auth();
