@@ -3,14 +3,32 @@ import {
   Box, Typography, Button, Alert,
   AlertTitle
 } from '@mui/material'
-import React, { useState } from 'react'
+import React, { useState,useEffect } from 'react'
 import MailOutlineIcon from '@mui/icons-material/MailOutline';
 import { Authclass } from '@/app/api/auth.class';
 import LoadingButton from '@mui/lab/LoadingButton';
 import Link from 'next/link';
 
 function Page() {
-  let email = '2018en0338@unijos.edu.ng'
+
+  const [email,setEmail] = useState('')
+  // Get the current URL
+  useEffect(()=>{
+      // Get the current URL
+    const currentUrl: string = window.location.href;
+    // Extract the email parameter from the URL
+    const urlParams = new URLSearchParams(currentUrl?.split('?')[1]); // Extract query parameters only
+    // Decode the email parameter
+    const emails: string | null = urlParams.get("email") ? decodeURIComponent(urlParams.get("email")!) : null;
+
+    if(emails){
+      setEmail(emails)
+    }
+  },[])
+
+
+console.log(email,'this is the email2')
+
   const [isLoading, setIsLoading] = useState(false)
   const [errorMessage, setErrorMessage] = useState('')
   const [successMessage, setSuccessMessage] = useState('')

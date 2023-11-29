@@ -55,7 +55,9 @@ function Login() {
               setAuthUser(res?.data?.data)
               window.location.href = "/dashboard";
             }else{
-              window.location.href = "emailVerification";
+              var url = "emailVerification?email=" + encodeURIComponent(values?.email);
+              // Set the window location to the constructed URL
+              window.location.href = url;
             }
         }
         setIsLoading(false)
