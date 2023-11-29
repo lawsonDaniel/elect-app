@@ -79,7 +79,7 @@ console.log(email,'this is the email2')
             <Typography variant="h5" className="mb-4">Email Verification Mail Sent</Typography>
             <Typography>We have sent you an email to verify </Typography>
             <Typography>Please checkyour mail and click the verification link to verify he email </Typography>
-            <LoadingButton loading={isLoading} onClick={handleResendOtp} className="rounded h-[50px] hover:bg-[#000] hover:text-[#fff] mt-3 w-full md:w-[200px] bg-[#000] text-[#fff]">Resend OTP</LoadingButton>
+            <LoadingButton loading={isLoading} disabled={email ? false : true} onClick={handleResendOtp} className="rounded h-[50px] hover:bg-[#000] hover:text-[#fff] mt-3 w-full md:w-[200px] bg-[#000] text-[#fff]">Resend OTP</LoadingButton>
           </Box>
         </Box>
       </Box>
