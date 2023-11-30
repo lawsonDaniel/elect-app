@@ -62,6 +62,7 @@ function Overview() {
         <MenuItem onClick={handleClose}>Profile</MenuItem>
         <MenuItem onClick={handleClose}>My account</MenuItem>
         <MenuItem onClick={()=>{
+          window.location.href = "auth/login"
           logOut()
           setAnchorEl(null);
         }}>Logout</MenuItem>
@@ -91,7 +92,7 @@ function Overview() {
           </Typography>
           <div className="overflow-y-auto "> {/* Adjust the height accordingly */}
             <Box className="flex flex-col gap-3">
-              {notification ?
+              {notification.length > 0 ?
                 notification?.map((a: any, i: number) => {
                   return (
                     <React.Fragment key={i}>
