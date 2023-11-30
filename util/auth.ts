@@ -17,3 +17,8 @@ export const getAuthUser = ()=>{
         return user
     } 
 }
+
+export const logOut = ()=>{
+    destroyCookie(null, 'storedUser')
+    return ;
+}
