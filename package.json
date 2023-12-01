@@ -22,6 +22,7 @@
     "react": "^18",
     "react-dom": "^18",
     "react-draft-wysiwyg": "^1.15.0",
+    "react-dropzone": "^14.2.3",
     "react-icons": "^4.11.0",
     "react-responsive-carousel": "^3.2.23",
     "react-transition-group": "^4.4.5",

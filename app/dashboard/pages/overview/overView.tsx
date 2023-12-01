@@ -6,10 +6,14 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import { MessageClass } from '@/app/api/message.class';
 import NotificationCard from './NotificationCard';
 import { logOut } from '@/util/auth';
+import Profile from './Profile';
 
 function Overview({user}:any) {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const [notification,setNotification] = React.useState<any>([])
+  const [profileOpen,setProfileOpen] = React.useState<boolean>(false)
+  const handleProfileOpen = () => setProfileOpen(true);
+  const handleProfileClose = () => setProfileOpen(false);
   const open = Boolean(anchorEl);
   console.log(user,'from over view')
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
@@ -60,7 +64,10 @@ function Overview({user}:any) {
           'aria-labelledby': 'basic-button',
         }}
       >
-        <MenuItem onClick={handleClose}>Profile</MenuItem>
+        <MenuItem onClick={()=>{
+          handleProfileOpen();
+          setAnchorEl(null);
+        }}>Profile</MenuItem>
         <MenuItem onClick={handleClose}>My account</MenuItem>
         <MenuItem onClick={()=>{
           window.location.href = "auth/login"
@@ -112,6 +119,7 @@ function Overview({user}:any) {
           </Box>
         
         </Box>
+        <Profile open={profileOpen} handleClose={handleProfileClose}/>
     </Box>
   )
 }

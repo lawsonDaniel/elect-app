@@ -3,7 +3,7 @@ import React from 'react'
 
 function Recipients({name,level}:any) {
   return (
-    <div className="flex flex-col bg-black text-white w-full rounded-lg p-4">
+    <div className="flex flex-col bg-black text-white w-[400px] rounded-lg p-4">
         <Box>
         <Typography>{name}</Typography>
         </Box>

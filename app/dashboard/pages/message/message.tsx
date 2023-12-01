@@ -46,11 +46,17 @@ function Message() {
       const res = await MessageClass.sendStaffMessage(values)
       if (!res?.data?.status) {
         setErrorMessage(res?.data?.message)
+        setTimeout(()=>{
+          setErrorMessage('')
+        },3000)
       }else{
         formik.values.message = ''
         formik.values.recipient = ''
         setDynamicRecipients([])
         setSuccessMessage(res?.data?.message)
+        setTimeout(()=>{
+          setSuccessMessage('')
+        },3000)
       }
       setIsLoading(false)
       console.log(res)
@@ -89,15 +95,19 @@ function Message() {
             </Alert>
             }
               <TextField 
-                  id="message"
-                  name="message"
-                  className=""
-                  value={formik.values.message}
-                  onChange={formik.handleChange}
-                  onBlur={formik.handleBlur}
-                  error={formik.touched.message && Boolean(formik.errors.message)}
-                  helperText={formik.touched.message && formik.errors.message}
-                  placeholder='Enter your message'/>
+                id="message"
+                name="message"
+                className=""
+                value={formik.values.message}
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+                error={formik.touched.message && Boolean(formik.errors.message)}
+                helperText={formik.touched.message && formik.errors.message}
+                multiline  // Set to true to enable multiline
+                rows={4}    // Adjust the number of visible rows as needed
+                placeholder='Enter your message'
+              />
+
                    <FormControl fullWidth>
                                     <InputLabel id="recipient-label">Select Recipient</InputLabel>
                                     <Select
