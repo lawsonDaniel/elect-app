@@ -7,10 +7,11 @@ import { MessageClass } from '@/app/api/message.class';
 import NotificationCard from './NotificationCard';
 import { logOut } from '@/util/auth';
 
-function Overview() {
+function Overview({user}:any) {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const [notification,setNotification] = React.useState<any>([])
   const open = Boolean(anchorEl);
+  console.log(user,'from over view')
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     setAnchorEl(event.currentTarget);
   };
@@ -38,15 +39,15 @@ function Overview() {
            }} className='text-[24px]'>OverView</Typography>
            <Box className="flex items-center">
            <Box>
-              <Typography className="text-[15px] font-bold">Daniel Lawson</Typography>
-              <Typography className="text-[12px] font-thin">400 level</Typography>
+              <Typography className="text-[15px] font-bold">{user ? user?.fullName.toUpperCase() : "loading data"}</Typography>
+              <Typography className="text-[12px] font-thin">{user ? user?.userType === "student" ? user?.level+" level" : "staff" : "loading data"}</Typography>
            </Box>
             <Button className="w-[30px]" id="basic-button"
               aria-controls={open ? 'basic-menu' : undefined}
               aria-haspopup="true"
               aria-expanded={open ? 'true' : undefined}
               onClick={handleClick}>
-                 <AccountCircleIcon className="text-[50px]"/>
+                <img width="48" height="48" src="https://img.icons8.com/doodle/48/user-male-circle.png" alt="user-male-circle"/>
               </Button>
            
             <div>
@@ -94,9 +95,11 @@ function Overview() {
             <Box className="flex flex-col gap-3">
               {notification.length > 0 ?
                 notification?.map((a: any, i: number) => {
+                  const date = a.time.split('T')[0];
+                  const time = a.time.split('T')[1].split('.')[0]
                   return (
                     <React.Fragment key={i}>
-                      <NotificationCard sender={a?.senderName.toUpperCase()} message={a?.message} />
+                      <NotificationCard sender={a?.senderName.toUpperCase()} date={date} time={time} message={a?.message} />
                     </React.Fragment>
                   );
                 })

@@ -8,13 +8,13 @@ import Chat from './pages/chat';
 import Message from './pages/message/message';
 import Article from './pages/article';
 
-function Main({ sideBarOpen, activePage }: any) {
+function Main({ sideBarOpen, activePage,user }: any) {
   return (
     <Box>
       <TransitionGroup>
         <CSSTransition key={activePage} classNames="fade" timeout={300}>
           <div>
-            {activePage === 'overview' && <Overview />}
+            {activePage === 'overview' && <Overview  user={user}/>}
             {activePage === 'chat' && <Chat />}
             {activePage === 'message' && <Message />}
             {activePage === 'article' && <Article />}

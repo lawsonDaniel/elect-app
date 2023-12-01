@@ -3,7 +3,7 @@ import { Box, Typography, Skeleton } from '@mui/material';
 import React from 'react';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 
-function NotificationCard({ sender, message }: any) {
+function NotificationCard({ sender, message,date,time }: any) {
   // Check if sender or message is null
   const shouldShowSkeleton = sender === null || message === null;
 
@@ -26,7 +26,11 @@ function NotificationCard({ sender, message }: any) {
         <Box className='w-full'>
           <Typography className="font-semibold text-md w-full">{sender}</Typography>
           <Box className="overflow-y-auto max-h-[100px]">
-            <Typography className='w-full'>{message}</Typography>
+            <Typography className='w-full text-[#333] text-[13px]'>{message}</Typography>
+          </Box>
+          <Box className="w-full flex items-center justify-between">
+              <Typography className='text-[#aaa] text-[12px]'>{date}</Typography>
+              <Typography  className='text-[#aaa] text-[12px]'>{time}</Typography>
           </Box>
         </Box>
       </Box>

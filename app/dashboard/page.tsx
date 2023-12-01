@@ -19,7 +19,7 @@ function Page() {
         <Sidebar userType={userType} isOpen={sideBarOpen} open={setSideBarOpen} activePage={activePage} setActivePage={setActivePage}/>
         <Box className="flex flex-col w-full h-full">
          {/* <Header  sideBarOpen={sideBarOpen} setSideBarOpen={setSideBarOpen}/>  */}
-        <Main  sideBarOpen={sideBarOpen} activePage={activePage} />
+        <Main user={user} sideBarOpen={sideBarOpen} activePage={activePage} />
         </Box>
        
    </Box>
