@@ -13,7 +13,7 @@ function Main({ sideBarOpen, activePage,user }: any) {
     <Box>
       <TransitionGroup>
         <CSSTransition key={activePage} classNames="fade" timeout={300}>
-          <div>
+          <div className="mt-[80px]">
             {activePage === 'overview' && <Overview  user={user}/>}
             {activePage === 'chat' && <Chat />}
             {activePage === 'message' && <Message />}

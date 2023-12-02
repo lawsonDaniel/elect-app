@@ -5,7 +5,7 @@ function Recipients({name,level,profileImg}:any) {
   return (
     <div className="flex flex-col bg-black text-white w-[400px] rounded-lg p-4">
       <Box className="flex">
-      {profileImg && <img width="48" height="48" src={profileImg} alt="user-male-circle"/>}
+      {profileImg && <img className="rounded-[100%] object-cover w-[48px] h-[48px]" width="48" height="48" src={profileImg} alt="user-male-circle"/>}
           <Box>
               <Box>
             <Typography>{name}</Typography>
