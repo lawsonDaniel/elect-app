@@ -4,7 +4,7 @@ import React from 'react'
 function Recipients({name,level,profileImg}:any) {
   return (
     <div className="flex flex-col bg-black text-white w-[400px] rounded-lg p-4">
-      <Box>
+      <Box className="flex">
       {profileImg && <img width="48" height="48" src={profileImg} alt="user-male-circle"/>}
           <Box>
               <Box>

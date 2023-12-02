@@ -15,8 +15,11 @@ function Message() {
       const res = await UserClass.getAll(userType,level)
       if(res?.data?.status){
         setDynamicRecipients(res?.data?.data)
+      }else{
+        setDynamicRecipients([])
       }
     }catch(err){
+      setDynamicRecipients([])
       console.log(err,'from get all useer')
     }
   }
