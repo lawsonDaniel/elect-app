@@ -145,7 +145,7 @@ function Message() {
                 dynamicRecipients.map((a:any)=>{
                   return(
                     <>
-                     <Recipients name={a.fullName} level={a.level}/>
+                     <Recipients name={a.fullName} level={a.level} profileImg={a.profileImg}/>
                     </>
                   )
                 })

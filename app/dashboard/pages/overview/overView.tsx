@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import { Box, Typography,Menu,MenuItem,Button } from '@mui/material'
 import React,{useEffect} from 'react'
 import NotificationsIcon from '@mui/icons-material/Notifications';
@@ -51,7 +52,7 @@ function Overview({user}:any) {
               aria-haspopup="true"
               aria-expanded={open ? 'true' : undefined}
               onClick={handleClick}>
-                <img width="48" height="48" src="https://img.icons8.com/doodle/48/user-male-circle.png" alt="user-male-circle"/>
+                {user?.profileImg && <img width="48" height="48" src={user && user?.profileImg } alt="user-male-circle"/>}
               </Button>
            
             <div>
@@ -67,8 +68,8 @@ function Overview({user}:any) {
         <MenuItem onClick={()=>{
           handleProfileOpen();
           setAnchorEl(null);
-        }}>Profile</MenuItem>
-        <MenuItem onClick={handleClose}>My account</MenuItem>
+        }}>Profile Setting</MenuItem>
+        {/* <MenuItem onClick={handleClose}>My account</MenuItem> */}
         <MenuItem onClick={()=>{
           window.location.href = "auth/login"
           logOut()
@@ -106,7 +107,7 @@ function Overview({user}:any) {
                   const time = a.time.split('T')[1].split('.')[0]
                   return (
                     <React.Fragment key={i}>
-                      <NotificationCard sender={a?.senderName.toUpperCase()} date={date} time={time} message={a?.message} />
+                      <NotificationCard sender={a?.senderName.toUpperCase()} profileImg={a?.profileImg} date={date} time={time} message={a?.message} />
                     </React.Fragment>
                   );
                 })
