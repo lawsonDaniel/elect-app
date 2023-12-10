@@ -1,8 +1,10 @@
 import axios from "axios";
-import { GetStoredAuthToken } from "@/common/hooks";
+import { getAuthUser } from "@/util/auth";
 //https://ui62646llb.execute-api.us-east-1.amazonaws.com/prod
  const baseURL = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3001"
  console.log(baseURL,'backend running')
+ const authUser:any = getAuthUser()
+ 
 // Create an Axios instance with the base URL
 const api = axios.create({
   baseURL: `${baseURL}`,
@@ -11,7 +13,7 @@ const api = axios.create({
 // Add an interceptor to include JWT in request headers if available
 api.interceptors.request.use(
   (config:any) => {
-    const jwt = GetStoredAuthToken(); // Replace GetStoredAuthToken() with the function to get the JWT from your storage or state
+    const jwt = authUser?.token; // Replace GetStoredAuthToken() with the function to get the JWT from your storage or state
 
     if (jwt) {
       config.headers.Authorization = `Bearer ${jwt}`;

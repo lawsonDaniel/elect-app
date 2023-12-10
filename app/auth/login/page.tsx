@@ -14,11 +14,14 @@ import Link from 'next/link';
 import { Authclass } from '@/app/api/auth.class';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
+import { setAuthUser } from '@/util/auth';
 
 function Login() {
   const [userType, setUserType] = useState('staff');
   const [isLoading, setIsLoading] = useState(false)
   const [errorMessage, setErrorMessage] = useState('')
+  const [successMessage, setSuccessMessage] = useState('')
+
   // form controll
   const validationSchema = Yup.object().shape({
     email: Yup.string()
@@ -37,6 +40,7 @@ function Login() {
       // Handle form submission here
       setIsLoading(true)
       setErrorMessage('')
+      setSuccessMessage('')
       try {
         values = {
           ...values,
@@ -45,6 +49,16 @@ function Login() {
         const res = await Authclass.login(values)
         if (!res?.data?.status) {
           setErrorMessage(res?.data?.message)
+        }else{
+          console.log(res?.data?.data?.verified,'data verified')
+            if(res?.data?.data?.verified){
+              setAuthUser(res?.data?.data)
+              window.location.href = "/dashboard";
+            }else{
+              var url = "emailVerification?email=" + encodeURIComponent(values?.email);
+              // Set the window location to the constructed URL
+              window.location.href = url;
+            }
         }
         setIsLoading(false)
         console.log(res)
@@ -80,6 +94,12 @@ function Login() {
                 <AlertTitle>Error</AlertTitle>
                 <strong>{errorMessage}</strong>
               </Alert>
+            }
+             {
+              successMessage && <Alert severity="success">
+              <AlertTitle>Login Successfull</AlertTitle>
+              <strong>{successMessage}</strong> 
+            </Alert>
             }
             <Typography className="text-[#08A1D7] text-[16px] text-center mb-2">Please enter your
               <br />Login Details.</Typography>

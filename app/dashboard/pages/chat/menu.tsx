@@ -1,8 +1,9 @@
+/* eslint-disable @next/next/no-img-element */
 import { Box, Typography } from "@mui/material";
 import React from "react";
 
 
-function Menu({ Icon, isOpen, name,message, top, bottom,onClick,sideBarOpen,date,messageNumber }:any) {
+function Menu({ image, isOpen, name,message, top, bottom,onClick,sideBarOpen,date,messageNumber }:any) {
  // const { logOut } = useAuth();
  console.log(sideBarOpen,'sidebar')
   return (
@@ -14,11 +15,12 @@ function Menu({ Icon, isOpen, name,message, top, bottom,onClick,sideBarOpen,date
       className={!sideBarOpen?`flex items-center gap-2 justify-between w-full border-b  h-[70px] cursor-pointer hover:bg-[#eee] hover:text-black  p-3 `:`flex items-center gap-2 justify-between w-full border-b  h-[70px] cursor-pointer bg-[#eee] text-black  p-3 ` }
     >
         <Box className="flex gap-2 items-center">
-        <Icon
+        {/* <Icon
         className={
           isOpen ? "w-[30px] h-[30px] stroke-1" : "w-[40px] h-[40px] stroke-1"
         }
-      />
+      /> */}
+      <img className="rounded-[100%] object-cover w-[38px] h-[38px]" width={38} height={38}  src={image} alt={name+' profile image'} />
     <Box  className="flex flex-col gap-1">
     {isOpen && <p className=" text-[12px] font-bold tracking-wide capitalize">{name}</p>}
     {isOpen && <p className="text-[9px] tracking-wide capitalize">{message}</p>}

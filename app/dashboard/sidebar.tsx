@@ -17,11 +17,11 @@ type SidebarProps = {
   open: React.Dispatch<React.SetStateAction<boolean>>; 
   isOpen: boolean; 
   activePage:string; 
+  userType:string;
   setActivePage: React.Dispatch<React.SetStateAction<string>>;
 };
-function Sidebar({ open, isOpen,activePage, setActivePage}:SidebarProps) {
+function Sidebar({ open, isOpen,activePage,userType, setActivePage}:SidebarProps) {
   const [nav, setNav] = useState(false);
-  const [userType,setUserType] = useState("staff")
   const handleNav = () => {
     setNav(!nav);
   };
@@ -29,7 +29,7 @@ function Sidebar({ open, isOpen,activePage, setActivePage}:SidebarProps) {
   return (
     <div style={{
       transition: 'margin-left 0.3s ease,width 0.3s ease',
-    }} className="h-[100vh] hidden md:flex flex-col items-center p-5 gap-4 border-r">
+    }} className="h-[100vh] flex flex-col items-center p-5 gap-4 border-r">
       <Menue
         Icon={DashboardIcon}
         isOpen={isOpen}
@@ -39,7 +39,9 @@ function Sidebar({ open, isOpen,activePage, setActivePage}:SidebarProps) {
         onClick={()=> setActivePage('overview')}
         bottom={10}
       />
-      <Menue
+      
+      {
+          <Menue
         Icon={ChatIcon}
         isOpen={isOpen}
         text="Chat"
@@ -48,6 +50,7 @@ function Sidebar({ open, isOpen,activePage, setActivePage}:SidebarProps) {
         onClick={()=> setActivePage('chat')}
         bottom={10}
       />
+      }
       {
         userType === "staff" &&  <Menue
         Icon={AnnouncementIcon}
