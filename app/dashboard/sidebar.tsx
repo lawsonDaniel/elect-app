@@ -41,7 +41,7 @@ function Sidebar({ open, isOpen,activePage,userType, setActivePage}:SidebarProps
       />
       
       {
-        userType === "student" &&  <Menue
+          <Menue
         Icon={ChatIcon}
         isOpen={isOpen}
         text="Chat"
