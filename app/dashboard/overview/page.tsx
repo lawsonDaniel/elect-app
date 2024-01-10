@@ -1,4 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
+"use client"
 import { Box, Typography,Menu,MenuItem,Button } from '@mui/material'
 import React,{useEffect} from 'react'
 import NotificationsIcon from '@mui/icons-material/Notifications';
@@ -7,7 +8,7 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import { MessageClass } from '@/app/api/message.class';
 import NotificationCard from './NotificationCard';
 import { logOut } from '@/util/auth';
-import Profile from '../../Profile';
+import Profile from "../Profile"
 
 function Overview({user}:any) {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);

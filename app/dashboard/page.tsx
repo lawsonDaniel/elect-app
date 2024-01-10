@@ -37,13 +37,16 @@ function Page() {
   const userType = user?.userType || 'student';
 console.log(user)
   return (
-    <Box className="flex w-full">
-      <Sidebar userType={userType} isOpen={sideBarOpen} open={setSideBarOpen} activePage={activePage} setActivePage={setActivePage} />
-      <Box className="flex flex-col w-full h-full">
-        <Header user={user} sideBarOpen={sideBarOpen} setSideBarOpen={setSideBarOpen} />
-        <Main user={user} sideBarOpen={sideBarOpen} activePage={activePage} />
-      </Box>
+    <Box>
+      <Main user={user} sideBarOpen={sideBarOpen} activePage={activePage} />
     </Box>
+    // <Box className="flex w-full flex-col-reverse md:flex-row">
+    //   <Sidebar userType={userType} isOpen={sideBarOpen} open={setSideBarOpen} activePage={activePage} setActivePage={setActivePage} />
+    //   <Box className="flex flex-col w-full h-full">
+    //     <Header user={user} sideBarOpen={sideBarOpen} setSideBarOpen={setSideBarOpen} />
+    //     <Main user={user} sideBarOpen={sideBarOpen} activePage={activePage} />
+    //   </Box>
+    // </Box>
   );
 }
 

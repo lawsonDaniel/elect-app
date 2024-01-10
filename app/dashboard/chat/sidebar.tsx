@@ -4,6 +4,7 @@ import { messagesData } from "@/util/testData";
 import SearchIcon from '@mui/icons-material/Search';
 import FilterListIcon from '@mui/icons-material/FilterList';
 import { Socket as socket } from "@/app/api/socket";
+import { getAuthUser } from "@/util/auth";
 
 import Menu from "./menu";
 import { Box, Typography } from "@mui/material";
@@ -20,13 +21,13 @@ type SidebarProps = {
 function Sidebar({ open, isOpen, activeUser, setActiveUser, userInfo,setUserInfo }: SidebarProps) {
   const [nav, setNav] = useState(false);
   const [userType, setUserType] = useState("staff");
- 
+  const userRecevier:any = getAuthUser();
   useEffect(() => {
     const handlePrivateMessage = (data: any) => {
       setUserInfo((prevUsers: any) =>
         [...prevUsers].sort((a: any, b: any) => {
-          if (a.id === data.receiverId) return -1; // a comes first
-          if (b.id === data.receiverId) return 1; // b comes first
+          if (a.id == data.senderId) return -1; // a comes first
+          if (b.id === data.senderId) return 1; // b comes first
           return a.id - b.id; // otherwise, sort based on id
         })
       );
@@ -91,7 +92,13 @@ function Sidebar({ open, isOpen, activeUser, setActiveUser, userInfo,setUserInfo
             message = {user?.active ? 'active' : `${(new Date() - new Date(user?.lastseen)) / 60000 < 1 ? 'just now' : (new Date() - new Date(user?.lastseen)) / 60000 < 60 ? Math.floor((new Date() - new Date(user?.lastseen)) / 60000) + ' minutes ago' : (new Date() - new Date(user?.lastseen)) / 3600000 < 24 ? Math.floor((new Date() - new Date(user?.lastseen)) / 3600000) + ' hours ago' : (new Date() - new Date(user?.lastseen)) / 86400000 < 30 ? Math.floor((new Date() - new Date(user?.lastseen)) / 86400000) + ' days ago' : new Date(user?.lastseen).toLocaleDateString()}`}
             top={0}
             sideBarOpen={activeUser === index && true}
-            onClick={() => setActiveUser(user.id)}
+            onClick={() => {
+              socket.emit('openChat',{
+                recevier:userRecevier?.id,
+                sender:user.id
+              })
+              setActiveUser(user.id)
+            }}
             bottom={10}
           />
         ))}
