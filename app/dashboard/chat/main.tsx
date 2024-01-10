@@ -187,6 +187,7 @@ function Main({ sideBarOpen, activeUser, userInfo }: MainProps) {
                 message={a?.message}
                 time={a?.createdAt.split('T')[1].split('.')[0]}
                 delivered={a?.sent}
+                seen={a?.seen}
               />
             ))}
         </Box>

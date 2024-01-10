@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+"use client"
+import React, { useState,useEffect } from "react";
 import {
   LuChevronRight,
   LuChevronLeft,
@@ -25,11 +26,13 @@ function Sidebar({ open, isOpen,activePage,userType, setActivePage}:SidebarProps
   const handleNav = () => {
     setNav(!nav);
   };
-
+useEffect(()=>{
+window.location.href = `/dashboar#${activePage}`
+},[activePage])
   return (
     <div style={{
       transition: 'margin-left 0.3s ease,width 0.3s ease',
-    }} className="h-[100vh] flex flex-col items-center p-5 gap-4 border-r">
+    }} className="md:h-[100vh] h-[50px] flex md:flex-col items-center p-5 gap-4 border-r">
       <Menue
         Icon={DashboardIcon}
         isOpen={isOpen}
