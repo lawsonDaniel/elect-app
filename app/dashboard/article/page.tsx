@@ -1,3 +1,4 @@
+"use client"
 import React, { useState } from 'react';
 import { Box, Typography } from '@mui/material';
 import { EditorState,convertToRaw } from 'draft-js';
