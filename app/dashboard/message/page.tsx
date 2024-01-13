@@ -80,7 +80,7 @@ function Message() {
   },[formik.values.recipient])
   return (
     <Box className="p-4 bg-[#eee]">
-        <Box className="w-full h-[100vh] overflow-visible bg-[#fff] rounded-lg p-4">
+        <Box className="w-full h-[100vh] overflow-scroll bg-[#fff] rounded-lg p-4">
             <Typography style={{
             fontFamily: "'Libre Baskerville', 'serif'"
            }} className='text-[24px]' >Send Announcement</Typography>

@@ -20,7 +20,7 @@ function NotificationCard({ sender, message,date,time,profileImg }: any) {
   }
 
   return (
-    <Box className="w-[100%]  bg-[#fff] rounded-lg">
+    <Box className="w-[100%]  bg-[#fff] rounded-lg overflow-hidden">
       <Box className="w-full h-full flex items-center justify-center gap-2 p-2">
      {profileImg && <img className='rounded-[100%] object-cover w-[48px] h-[48px]' width="48" height="48" src={profileImg} alt="user-male-circle"/>}
         <Box className='w-full'>

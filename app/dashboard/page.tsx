@@ -28,7 +28,7 @@ function Overview({user}:any) {
   },[])
   return (
     <Box className="" >
-        <Box className="w-full h-[100vh] overflow-visible bg-[#fff] rounded-lg">
+        <Box className="w-full h-[100vh] overflow-scroll bg-[#fff] rounded-lg">
           <Box className=" w-full h-full overflow-y-auto flex flex-col p-5 gap-5">
               <Box className="w-full  flex  gap-3">
               <Box className="w-[120px] h-[100px] bg-white rounded-lg p-3 justify-cneter items-center">
