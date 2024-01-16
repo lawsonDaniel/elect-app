@@ -20,25 +20,25 @@ function SideBar() {
   
     <Box className="lg:w-[190px]  md:w-[70px] absolute md:static bottom-0 cursor-pointer w-full md:justify-normal md:gap-[28px] justify-center py-[27px] px-[5px] items-center  bg-white md:rounded-[16px] md:h-[700px] h-[50px] md:my-[16px] flex md:flex-col">
         <Box 
-        className="flex hover:bg-[#cfcfcf3d] lg:p-[20px] rounded-[10px]  flex-col md:flex-row items-center justify-center gap-1 lg:justify-start w-full lg:gap-[12px] h-[26px]" onClick={() => router.push('/dashboard')}>
+        className="flex hover:md:bg-[#cfcfcf3d] lg:p-[20px] rounded-[10px]  flex-col md:flex-row items-center justify-center gap-1 lg:justify-start w-full lg:gap-[12px] h-[26px]" onClick={() => router.push('/dashboard')}>
             {
              <DashboardIcon className={`text-[24px] ${ pathName === '/dashboard' ? 'text-[#7C36CF]': 'text-[#ADAFBB]'}`}/>
             }
         <Typography className={`font-GilroyBold text-[12px] lg:text-[17px] sm:hidden  lg:block ${ pathName === '/dashboard' ? 'text-[#7C36CF]': 'text-[#ADAFBB]'}`}>Home</Typography>
         </Box>
-        <Box className="flex hover:bg-[#cfcfcf3d] lg:p-[20px] rounded-[10px]  flex-col md:flex-row items-center justify-center gap-1 lg:justify-start w-full lg:gap-[12px] h-[26px]" onClick={() => router.push('/dashboard/chat')}>
+        <Box className="flex hover:md:bg-[#cfcfcf3d] lg:p-[20px] rounded-[10px]  flex-col md:flex-row items-center justify-center gap-1 lg:justify-start w-full lg:gap-[12px] h-[26px]" onClick={() => router.push('/dashboard/chat')}>
             {
              <ChatIcon className={`text-[24px] ${ pathName === '/dashboard/chat' ? 'text-[#7C36CF]': 'text-[#ADAFBB]'}`}/>
             }
         <Typography className={`font-GilroyBold text-[12px] lg:text-[17px] sm:hidden  lg:block ${ pathName === '/dashboard/chat' ? 'text-[#7C36CF]': 'text-[#ADAFBB]'}`}>Chat</Typography>
         </Box>
-        <Box className="flex hover:bg-[#cfcfcf3d] lg:p-[20px] rounded-[10px]  flex-col md:flex-row items-center justify-center gap-1 lg:justify-start w-full lg:gap-[12px] h-[26px]" onClick={() => router.push('/dashboard/message')}>
+        <Box className="flex hover:md:bg-[#cfcfcf3d] lg:p-[20px] rounded-[10px]  flex-col md:flex-row items-center justify-center gap-1 lg:justify-start w-full lg:gap-[12px] h-[26px]" onClick={() => router.push('/dashboard/message')}>
             {
              <AnnouncementIcon  className={`text-[24px] ${ pathName === '/dashboard/message' ? 'text-[#7C36CF]': 'text-[#ADAFBB]'}`}/>
             }
         <Typography className={`font-GilroyBold text-[12px] lg:text-[17px] sm:hidden  lg:block ${ pathName === '/dashboard/message' ? 'text-[#7C36CF]': 'text-[#ADAFBB]'}`}>BroadCast</Typography>
         </Box>
-        <Box className="flex hover:bg-[#cfcfcf3d] lg:p-[20px] rounded-[10px]  flex-col md:flex-row items-center justify-center gap-1 lg:justify-start w-full lg:gap-[12px] h-[26px]" onClick={() => router.push('/dashboard/article')}>
+        <Box className="flex hover:md:bg-[#cfcfcf3d] lg:p-[20px] rounded-[10px]  flex-col md:flex-row items-center justify-center gap-1 lg:justify-start w-full lg:gap-[12px] h-[26px]" onClick={() => router.push('/dashboard/article')}>
             {
              <PostAddIcon className={`text-[24px] ${ pathName === '/dashboard/article' ? 'text-[#7C36CF]': 'text-[#ADAFBB]'}`}/>
             }

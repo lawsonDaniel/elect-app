@@ -15,14 +15,31 @@ type SidebarProps = {
   activeUser: null | number;
   setActiveUser: React.Dispatch<React.SetStateAction<any>>;
   userInfo: Array<any>; // Specify the type of userInfo array
-  setUserInfo:any,
-  handleClickOpen:() => void
+  setUserInfo:any;
+  handleClickOpen:() => void;
+  userData: any
 };
 
-function Sidebar({ open, isOpen, activeUser, setActiveUser, userInfo,setUserInfo,handleClickOpen }: SidebarProps) {
+function Sidebar({ open, isOpen, activeUser,userData, setActiveUser, userInfo,setUserInfo,handleClickOpen }: SidebarProps) {
   const [nav, setNav] = useState(false);
   const [userType, setUserType] = useState("staff");
+  const [searchValue,setSearchValue] = useState("")
   const userRecevier:any = getAuthUser();
+  
+  const handleSearch = (e: any) => {
+    const inputValue = e.target.value.toLowerCase(); // Convert input value to lowercase
+    setSearchValue(inputValue);
+    // Assuming userInfo is an array of objects with a 'fullName' property
+    const filteredUserInfo = userData.filter((user:any) => user.fullName.toLowerCase().includes(inputValue));
+    // Now, you can use the filteredUserInfo array as needed, such as updating state with it
+    setUserInfo(filteredUserInfo);
+  };
+  useEffect(()=>{
+    if(searchValue.length <1){
+      setUserInfo(userData)
+    }
+  },[searchValue])
+
   useEffect(() => {
     const handlePrivateMessage = (data: any) => {
       setUserInfo((prevUsers: any) =>
@@ -34,7 +51,7 @@ function Sidebar({ open, isOpen, activeUser, setActiveUser, userInfo,setUserInfo
       );
     };
     
-
+    
     socket.on('privateMessage', handlePrivateMessage);
 
     return () => {
@@ -72,6 +89,8 @@ function Sidebar({ open, isOpen, activeUser, setActiveUser, userInfo,setUserInfo
                 className="outline-none w-full"
                 placeholder="Search or start a new chat"
                 type="search"
+                onChange={(event:any) => handleSearch(event)}
+                value={searchValue}
               />
             </Box>
             <FilterListIcon />
@@ -90,6 +109,7 @@ function Sidebar({ open, isOpen, activeUser, setActiveUser, userInfo,setUserInfo
             image={user?.profileImage}
             isOpen={isOpen}
             name={user?.fullName}
+            you={userRecevier?.id === user?.id }
             message = {user?.active ? 'active' : `${(new Date() - new Date(user?.lastseen)) / 60000 < 1 ? 'just now' : (new Date() - new Date(user?.lastseen)) / 60000 < 60 ? Math.floor((new Date() - new Date(user?.lastseen)) / 60000) + ' minutes ago' : (new Date() - new Date(user?.lastseen)) / 3600000 < 24 ? Math.floor((new Date() - new Date(user?.lastseen)) / 3600000) + ' hours ago' : (new Date() - new Date(user?.lastseen)) / 86400000 < 30 ? Math.floor((new Date() - new Date(user?.lastseen)) / 86400000) + ' days ago' : new Date(user?.lastseen).toLocaleDateString()}`}
             top={0}
             sideBarOpen={activeUser === index && true}

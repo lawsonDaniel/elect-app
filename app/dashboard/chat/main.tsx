@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
-import React, { useState, useRef, useEffect, ChangeEvent } from 'react';
+import React, { useState, useRef, useEffect, ChangeEvent, useLayoutEffect } from 'react';
 import { Box, Typography, Menu, MenuItem, Button,IconButton } from '@mui/material';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import SearchIcon from '@mui/icons-material/Search';
@@ -11,14 +11,16 @@ import { Socket as socket } from '@/app/api/socket';
 import { getAuthUser } from '@/util/auth';
 import { messagesData, dummyData } from '@/util/testData';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
+import { arrangeUser } from '@/util/arrangeUsers';
 
 interface MainProps {
   activeUser: any;
   userInfo: any;
-  setOpen:any
+  setOpen:any;
+  setUserInfo:any;
 }
 
-function Main({ activeUser, userInfo,setOpen }: MainProps) {
+function Main({ activeUser, userInfo,setOpen,setUserInfo }: MainProps) {
   const [profile, setProfile] = useState<HTMLElement | null>(null);
   const [menu, setMenu] = useState<HTMLElement | null>(null);
   const [chatData, setChatData] = useState(dummyData);
@@ -44,9 +46,13 @@ function Main({ activeUser, userInfo,setOpen }: MainProps) {
 
   console.log(message,'message')
 
-  socket.on('privateMessage', (data: any) => {
-    setMessage((prevMessages) => [...message, data]);
-  });
+  useLayoutEffect(()=>{
+    socket.on('privateMessage', (data: any) => {
+      let ArrangedUser = arrangeUser(data.senderId,userInfo)
+      setUserInfo(ArrangedUser)
+      setMessage((prevMessages) => [...message, data]);
+    });
+  },[message])
 
   const chatBoxRef: any = useRef(null);
 
@@ -78,7 +84,8 @@ function Main({ activeUser, userInfo,setOpen }: MainProps) {
 
   const sendMessage = () => {
     const currentTime = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-
+    let ArrangedUser = arrangeUser(singleUser?.id,userInfo)
+    setUserInfo(ArrangedUser)
     const data = [...chatData];
     socket.emit('privateMessage', {
       message: chat,

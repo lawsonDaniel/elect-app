@@ -9,6 +9,7 @@ interface FunctionProp{
   activeUser: any;
   userInfo: any;
   setOpen: any;
+  setUserInfo:any;
 }
 const Transition = React.forwardRef(function Transition(
   props: TransitionProps & {
@@ -18,10 +19,10 @@ const Transition = React.forwardRef(function Transition(
 ) {
   return <Slide direction="right" ref={ref} {...props} />;
 });
-function ChatDialog({handleClose,open,userInfo,activeUser,setOpen}:FunctionProp) {
+function ChatDialog({handleClose,open,userInfo,activeUser,setOpen,setUserInfo}:FunctionProp) {
   return (
     <Dialog TransitionComponent={Transition} fullScreen onClose={handleClose} open={open}>
-      <Main activeUser={activeUser} userInfo={userInfo} setOpen={setOpen}/>
+      <Main setUserInfo={setUserInfo} activeUser={activeUser} userInfo={userInfo} setOpen={setOpen}/>
     </Dialog>
   )
 }

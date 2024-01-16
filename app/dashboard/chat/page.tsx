@@ -11,16 +11,22 @@ function Chat() {
     const [messageBarOpen,setMessageBarOpen] = useState<boolean>(true)
     const [activeUser,setActiveUser] =  useState(null)
     const [userInfo,setUserInfo] = useState<[]>([])
+    const [userData,setUserData] = useState<[]>([])
     const [open, setOpen] = React.useState(false);
 
+   
+
    useLayoutEffect(()=>{
+    if(userInfo && userInfo.length <1){
+      Socket.emit('getUser')
+     }
     Socket.on('user',(data)=>{
       setUserInfo(data)
+      setUserData(data)
     })
    },[])
-   if(userInfo && userInfo.length <1){
-    Socket.emit('getUser')
-   }
+
+   
    console.log(userInfo,'user info')
    
    const handleClose = () => {
@@ -31,8 +37,8 @@ function Chat() {
   };
   return (
     <Box className="w-full">
-        <Sidebar handleClickOpen={handleClickOpen} setUserInfo={setUserInfo}  userInfo={userInfo} isOpen={messageBarOpen} open={setMessageBarOpen} activeUser={activeUser} setActiveUser={setActiveUser}/> 
-        <ChatDialog setOpen={setOpen} open={open} handleClose={handleClose} activeUser={activeUser} userInfo={userInfo} />
+        <Sidebar userData={userData} setUserInfo={setUserInfo} handleClickOpen={handleClickOpen}   userInfo={userInfo} isOpen={messageBarOpen} open={setMessageBarOpen} activeUser={activeUser} setActiveUser={setActiveUser}/> 
+        <ChatDialog setUserInfo={setUserInfo} setOpen={setOpen} open={open} handleClose={handleClose} activeUser={activeUser} userInfo={userInfo} />
    </Box>
   )
 }
