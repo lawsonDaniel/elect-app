@@ -15,10 +15,11 @@ type SidebarProps = {
   activeUser: null | number;
   setActiveUser: React.Dispatch<React.SetStateAction<any>>;
   userInfo: Array<any>; // Specify the type of userInfo array
-  setUserInfo:any
+  setUserInfo:any,
+  handleClickOpen:() => void
 };
 
-function Sidebar({ open, isOpen, activeUser, setActiveUser, userInfo,setUserInfo }: SidebarProps) {
+function Sidebar({ open, isOpen, activeUser, setActiveUser, userInfo,setUserInfo,handleClickOpen }: SidebarProps) {
   const [nav, setNav] = useState(false);
   const [userType, setUserType] = useState("staff");
   const userRecevier:any = getAuthUser();
@@ -51,10 +52,10 @@ function Sidebar({ open, isOpen, activeUser, setActiveUser, userInfo,setUserInfo
         minWidth: "300px",
         transition: 'margin-left 0.3s ease,width 0.3s ease',
       }}
-      className="h-[100vh] w-[500px]  border-r text-black items-center overflow-none"
+      className="h-[100vh] w-full border-r text-black items-center overflow-none"
     >
-      <Box className="w-full h-[120px] border-b p-4 relative bg-[#eee]  ">
-        <Typography
+      <Box className="w-full h-min-content border-b p-4 relative bg-[#eee]  ">
+        {/* <Typography
           style={{
             fontFamily: "'Libre Baskerville', 'serif'",
           }}
@@ -62,7 +63,7 @@ function Sidebar({ open, isOpen, activeUser, setActiveUser, userInfo,setUserInfo
         >
           {' '}
           All Messages
-        </Typography>
+        </Typography> */}
         <Box className="w-full">
           <Box className="flex w-full justify-between items-center gap-2">
             <Box className="border rounded-[10px] p-2 h-[50px] w-full flex bg-white items-center">
@@ -93,11 +94,14 @@ function Sidebar({ open, isOpen, activeUser, setActiveUser, userInfo,setUserInfo
             top={0}
             sideBarOpen={activeUser === index && true}
             onClick={() => {
+              handleClickOpen()
+              console.log( `clicked`)
               socket.emit('openChat',{
                 recevier:userRecevier?.id,
                 sender:user.id
               })
               setActiveUser(user.id)
+             
             }}
             bottom={10}
           />
