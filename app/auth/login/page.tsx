@@ -76,8 +76,8 @@ function Login() {
     setUserType(newUserType);
   };
   return (
-    <Box className="p-[70px]">
-      <Box className="border border-[#A4A4A4] rounded-[15px] w-full px-[34px] p-[50px]">
+    <Box className="md:p-[70px] p-2 mt-[50px] md:mt-1">
+      <Box className="border border-[#A4A4A4] rounded-[15px] w-full md:px-[34px] md:p-[50px] p-4">
         <Box className="lg:grid md:block sm:block lg:grid-cols-2 md:grid-cols-1 sm:grid-cols-1 gap-5 px-50">
           <Box className="w-full lg:border-r lg:border-[#A4A4A4] p-[20px]">
             <Typography className="text-[#08A1D7] text-[16px] text-center mb-5">Please read the following <br />Instructions.</Typography>

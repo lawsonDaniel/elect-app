@@ -3,7 +3,7 @@ import { Box, Typography } from "@mui/material";
 import React from "react";
 
 
-function Menu({ image, isOpen, name,message, top, bottom,onClick,sideBarOpen,date,messageNumber }:any) {
+function Menu({ image, isOpen, name,message, top, bottom,onClick,sideBarOpen,date,messageNumber,you }:any) {
  // const { logOut } = useAuth();
  console.log(sideBarOpen,'sidebar')
   return (
@@ -22,7 +22,12 @@ function Menu({ image, isOpen, name,message, top, bottom,onClick,sideBarOpen,dat
       /> */}
       <img className="rounded-[100%] object-cover w-[38px] h-[38px]" width={38} height={38}  src={image} alt={name+' profile image'} />
     <Box  className="flex flex-col gap-1">
+    <div className="flex gap-2">
     {isOpen && <p className=" text-[12px] font-bold tracking-wide capitalize">{name}</p>}
+    {
+      you && <p className=" text-[12px] font-bold tracking-wide capitalize">(You)</p>
+    }
+    </div>
     {isOpen && <p className="text-[9px] tracking-wide capitalize">{message}</p>}
     </Box>
         </Box>

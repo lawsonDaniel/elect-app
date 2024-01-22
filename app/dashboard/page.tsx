@@ -1,53 +1,77 @@
+/* eslint-disable @next/next/no-img-element */
 "use client"
-import React, { useState, useEffect } from 'react';
-import Main from './main';
-import Header from './header';
-import Sidebar from './sidebar';
-import { Box } from '@mui/material';
-import { UserClass } from '../api/user.class';
-import{ Socket } from '../api/socket';
+import { Box, Typography,Menu,MenuItem,Button } from '@mui/material'
+import React,{useEffect} from 'react'
+import NotificationsIcon from '@mui/icons-material/Notifications';
+import MarkUnreadChatAltIcon from '@mui/icons-material/MarkUnreadChatAlt';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import { MessageClass } from '@/app/api/message.class';
+import NotificationCard from './NotificationCard';
+import { logOut } from '@/util/auth';
+import Profile from "./Profile"
 
-function Page() {
-  const [sideBarOpen, setSideBarOpen] = useState<boolean>(false);
-  const [activePage, setActivePage] = useState('overview');
-  const [user, setUser] = useState<any>(null);
-// Socket.emit('send_private_message',{
-//       receiverId:"b7a48b82-d590-4023-9ad5-9722a70b3921",
-//       type:"message",
-//       message:"this is a text from react"
-//     })
-// useEffect(()=>{
-//   Socket.on("receive_private_message",(data)=>{
-//     console.log(data,'recevied message')
-//     })
-// },[Socket])
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const userData = await UserClass.getSelf();
-        setUser(userData?.data?.data);
-      } catch (error) {
-        console.error('Error fetching user data:', error);
-      }
-    };
-
-    fetchData();
-  }, []);
-
-  const userType = user?.userType || 'student';
-console.log(user)
+function Overview({user}:any) {
+  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
+  const [notification,setNotification] = React.useState<any>([])
+  
+  const getMessage = async()=>{
+    try{
+      const res = await MessageClass.getStaffMessage()
+      console.log(res,'Response')
+      setNotification(res?.data?.data)
+    }catch(err){
+      console.log(err);
+    }
+  }
+  useEffect(()=>{
+    getMessage()
+  },[])
   return (
-    <Box>
-      <Main user={user} sideBarOpen={sideBarOpen} activePage={activePage} />
+    <Box className="" >
+        <Box className="w-full h-[100vh] overflow-scroll bg-[#fff] rounded-lg">
+          <Box className=" w-full h-full overflow-y-auto flex flex-col p-5 gap-5">
+              <Box className="w-full  flex  gap-3">
+              <Box className="w-[120px] text-center h-[100px] bg-[#25d466] rounded-lg p-3 justify-center items-center">
+                <Typography className="text-[12px] font-thin">Broadcast</Typography>
+                <Typography style={{
+                    fontFamily: "'Libre Baskerville', 'serif'"
+                  }} className="text-[54px]"> {notification?.length || 0}</Typography>
+              </Box>
+              {/* <Box className="w-[120px] h-[100px] bg-black text-white rounded-lg p-3 justify-cneter items-center">
+                <Typography className="text-[12px] font-thin">Messages</Typography>
+                <Typography style={{
+                    fontFamily: "'Libre Baskerville', 'serif'"
+                  }} className="text-[54px]"> 35</Typography>
+              </Box> */}
+              </Box>
+              <Box className="bg-[#54bdeb] w-full md:w-[500px] p-2">
+          <Typography style={{ fontWeight:100 }} className="text-[24px]">
+           Broadcast
+          </Typography>
+          <div className="overflow-y-auto "> {/* Adjust the height accordingly */}
+            <Box className="flex flex-col gap-3">
+              {notification.length > 0 ?
+                notification?.map((a: any, i: number) => {
+                  const date = a.time.split('T')[0];
+                  const time = a.time.split('T')[1].split('.')[0]
+                  return (
+                    <React.Fragment key={i}>
+                      <NotificationCard sender={a?.senderName.toUpperCase()} profileImg={a?.profileImg} date={date} time={time} message={a?.message} />
+                    </React.Fragment>
+                  );
+                })
+              : <Typography>No new Broadcast</Typography>
+              }
     </Box>
-    // <Box className="flex w-full flex-col-reverse md:flex-row">
-    //   <Sidebar userType={userType} isOpen={sideBarOpen} open={setSideBarOpen} activePage={activePage} setActivePage={setActivePage} />
-    //   <Box className="flex flex-col w-full h-full">
-    //     <Header user={user} sideBarOpen={sideBarOpen} setSideBarOpen={setSideBarOpen} />
-    //     <Main user={user} sideBarOpen={sideBarOpen} activePage={activePage} />
-    //   </Box>
-    // </Box>
-  );
+  </div>
+</Box>
+
+          </Box>
+        
+        </Box>
+        
+    </Box>
+  )
 }
 
-export default Page;
+export default Overview

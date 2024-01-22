@@ -39,7 +39,7 @@ function Register() {
     .matches(/^[a-zA-Z0-9._%+-]+@unijos\.edu\.ng$/, 'Invalid email format. Must be in the format value@unijos.edu.ng')
     .required('Email is required'),
     fullName: Yup.string().required('Full Name is required'),
-    session: Yup.string().required('Academic Session is required'),
+    level: Yup.string().required('Level is required'),
     phoneNumber:Yup.string().required('Phone number is required'),
     password: Yup.string().required('Password is required'),
     confirmPassword: Yup.string()
@@ -52,7 +52,7 @@ function Register() {
       email: '',
       phoneNumber:'',
       fullName: '',
-      session: '',
+      level: '',
       password: '',
       confirmPassword:''
     } as any,
@@ -87,7 +87,7 @@ function Register() {
   });
 
   return (
-    <Box className="p-[70px]">
+    <Box  className="md:p-[70px] p-2 mt-[50px] md:mt-1">
       <Box className="border border-[#A4A4A4] rounded-[15px] w-full px-[34px] p-[50px]">
         <Box className="lg:grid md:block sm:block lg:grid-cols-2 md:grid-cols-1 sm:grid-cols-1 gap-5 px-50">
           <Box className="w-full lg:border-r lg:border-[#A4A4A4] p-[20px]">
@@ -173,18 +173,22 @@ function Register() {
             />
 
             <FormControl fullWidth>
-              <InputLabel id="session-label">Academic Session</InputLabel>
+              <InputLabel id="level-label">Level</InputLabel>
               <Select
-                labelId="session-label"
-                id="session"
-                name="session"
-                value={formik.values.session}
-                label="Academic Session"
+                labelId="level-label"
+                id="level"
+                name="level"
+                value={formik.values.level}
+                label="Level"
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
-                error={formik.touched.session && Boolean(formik.errors.session)}
+                error={formik.touched.level && Boolean(formik.errors.level)}
               >
-                <MenuItem value={'2022/2023'}>2022/2023</MenuItem>
+                <MenuItem value={'100'}>100</MenuItem>
+                <MenuItem value={'200'}>200</MenuItem>
+                <MenuItem value={'300'}>300</MenuItem>
+                <MenuItem value={'400'}>400</MenuItem>
+                <MenuItem value={'500'}>500</MenuItem>
               </Select>
             </FormControl>
 

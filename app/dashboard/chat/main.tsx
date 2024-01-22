@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
-import React, { useState, useRef, useEffect, ChangeEvent } from 'react';
-import { Box, Typography, Menu, MenuItem, Button } from '@mui/material';
+import React, { useState, useRef, useEffect, ChangeEvent, useLayoutEffect } from 'react';
+import { Box, Typography, Menu, MenuItem, Button,IconButton } from '@mui/material';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import SearchIcon from '@mui/icons-material/Search';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
@@ -10,14 +10,17 @@ import Message from './message';
 import { Socket as socket } from '@/app/api/socket';
 import { getAuthUser } from '@/util/auth';
 import { messagesData, dummyData } from '@/util/testData';
+import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
+import { arrangeUser } from '@/util/arrangeUsers';
 
 interface MainProps {
-  sideBarOpen: boolean;
   activeUser: any;
   userInfo: any;
+  setOpen:any;
+  setUserInfo:any;
 }
 
-function Main({ sideBarOpen, activeUser, userInfo }: MainProps) {
+function Main({ activeUser, userInfo,setOpen,setUserInfo }: MainProps) {
   const [profile, setProfile] = useState<HTMLElement | null>(null);
   const [menu, setMenu] = useState<HTMLElement | null>(null);
   const [chatData, setChatData] = useState(dummyData);
@@ -43,9 +46,13 @@ function Main({ sideBarOpen, activeUser, userInfo }: MainProps) {
 
   console.log(message,'message')
 
-  socket.on('privateMessage', (data: any) => {
-    setMessage((prevMessages) => [...message, data]);
-  });
+  useLayoutEffect(()=>{
+    socket.on('privateMessage', (data: any) => {
+      let ArrangedUser = arrangeUser(data.senderId,userInfo)
+      setUserInfo(ArrangedUser)
+      setMessage((prevMessages) => [...message, data]);
+    });
+  },[message])
 
   const chatBoxRef: any = useRef(null);
 
@@ -77,7 +84,8 @@ function Main({ sideBarOpen, activeUser, userInfo }: MainProps) {
 
   const sendMessage = () => {
     const currentTime = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-
+    let ArrangedUser = arrangeUser(singleUser?.id,userInfo)
+    setUserInfo(ArrangedUser)
     const data = [...chatData];
     socket.emit('privateMessage', {
       message: chat,
@@ -95,6 +103,17 @@ function Main({ sideBarOpen, activeUser, userInfo }: MainProps) {
     <Box>
       <Box className="w-full h-[80px] flex p-3 items-center justify-between border-b">
         <Box className="flex items-center">
+          
+            <IconButton
+              edge="start"
+              color="inherit"
+              onClick={()=>{
+                setOpen(false)
+              }}
+              aria-label="close"
+            >
+              <ArrowBackIosIcon/>
+            </IconButton>
           <Button
             className="w-[30px]"
             id="profile-button"
@@ -174,9 +193,9 @@ function Main({ sideBarOpen, activeUser, userInfo }: MainProps) {
         <Box
           ref={chatBoxRef}
           style={{
-            height: 'calc(100vh - 218px)',
+            height: 'calc(100vh - 138px)',
           }}
-          className="w-full bg-[#555] p-3 flex flex-col gap-4 overflow-y-auto overflow-x-none"
+          className="chat w-full bg-[#f0f2f5] p-2 md:p-[100px] flex flex-col gap-4 overflow-y-auto overflow-x-none"
         >
           {sortedMessages &&
             sortedMessages.map((a: any, i) => (
