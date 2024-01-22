@@ -31,22 +31,22 @@ function Overview({user}:any) {
         <Box className="w-full h-[100vh] overflow-scroll bg-[#fff] rounded-lg">
           <Box className=" w-full h-full overflow-y-auto flex flex-col p-5 gap-5">
               <Box className="w-full  flex  gap-3">
-              <Box className="w-[120px] h-[100px] bg-white rounded-lg p-3 justify-cneter items-center">
-                <Typography className="text-[12px] font-thin">Notifications</Typography>
+              <Box className="w-[120px] text-center h-[100px] bg-[#25d466] rounded-lg p-3 justify-center items-center">
+                <Typography className="text-[12px] font-thin">Broadcast</Typography>
                 <Typography style={{
                     fontFamily: "'Libre Baskerville', 'serif'"
                   }} className="text-[54px]"> {notification?.length || 0}</Typography>
               </Box>
-              <Box className="w-[120px] h-[100px] bg-black text-white rounded-lg p-3 justify-cneter items-center">
+              {/* <Box className="w-[120px] h-[100px] bg-black text-white rounded-lg p-3 justify-cneter items-center">
                 <Typography className="text-[12px] font-thin">Messages</Typography>
                 <Typography style={{
                     fontFamily: "'Libre Baskerville', 'serif'"
                   }} className="text-[54px]"> 35</Typography>
+              </Box> */}
               </Box>
-              </Box>
-              <Box className="bg-[#eee] w-full md:w-[500px] p-2">
-          <Typography style={{ fontFamily: "'Libre Baskerville', 'serif'" }} className="text-[24px]">
-            Notifications
+              <Box className="bg-[#54bdeb] w-full md:w-[500px] p-2">
+          <Typography style={{ fontWeight:100 }} className="text-[24px]">
+           Broadcast
           </Typography>
           <div className="overflow-y-auto "> {/* Adjust the height accordingly */}
             <Box className="flex flex-col gap-3">
@@ -60,7 +60,7 @@ function Overview({user}:any) {
                     </React.Fragment>
                   );
                 })
-              : <Typography>No new Notifications</Typography>
+              : <Typography>No new Broadcast</Typography>
               }
     </Box>
   </div>

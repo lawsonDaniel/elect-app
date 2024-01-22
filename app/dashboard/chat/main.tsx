@@ -195,7 +195,7 @@ function Main({ activeUser, userInfo,setOpen,setUserInfo }: MainProps) {
           style={{
             height: 'calc(100vh - 138px)',
           }}
-          className="w-full bg-[#555] p-3 flex flex-col gap-4 overflow-y-auto overflow-x-none"
+          className="chat w-full bg-[#f0f2f5] p-2 md:p-[100px] flex flex-col gap-4 overflow-y-auto overflow-x-none"
         >
           {sortedMessages &&
             sortedMessages.map((a: any, i) => (

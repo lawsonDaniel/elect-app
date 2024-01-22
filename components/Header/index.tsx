@@ -1,39 +1,39 @@
+"use client"
 /* eslint-disable @next/next/no-img-element */
 import React from 'react'
 import { 
     Box,
-     Typography
+     Typography,Button,Drawer,
+     Divider,List,ListItem
  } from '@mui/material'
  import LocationOnIcon from '@mui/icons-material/LocationOn';
  import PhoneIcon from '@mui/icons-material/Phone';
  import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
  import DragHandleIcon from '@mui/icons-material/DragHandle';
+ import MenuIcon from '@mui/icons-material/Menu';
+ import CloseIcon from '@mui/icons-material/Close';
+
 function Header() {
+  const [state, setState] = React.useState(true)
+  const toggleDrawer = (open:boolean) => (event: React.KeyboardEvent | React.MouseEvent) => {
+    if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
+      return;
+    }
+    setState(open);
+  };
+  const style = {
+    py: 0,
+    width: '100%',
+    borderColor: 'divider',
+    backgroundColor: 'background.paper',
+    
+  };
   return (
-    // <Box >
-    //      <Box className="flex p-4 justify-between items-center">
-    //     <img className="w-[184px] h-[33px] object-contain" src="/logo.png" alt="logo" />
-    //     <Box className="flex gap-4">
-    //         <Box className="flex gap-1">
-    //             <LocationOnIcon/>
-    //             <Typography>University of Jos</Typography>
-    //         </Box>
-    //         <Box className="flex gap-1">
-    //             <PhoneIcon/>
-    //             <Typography>University of Jos</Typography>
-    //         </Box>
-    //         <Box className="flex gap-1">
-    //             <CalendarTodayIcon/>
-    //             <Typography>University of Jos</Typography>
-    //         </Box>
-    //     </Box>
-    // </Box>
-    //
-    // </Box>
-    <Box className="w-full  flex items-center justify-between p-2 absolute top-0 text-white z-20">
-        <img className="w-[184px] h-[33px] object-contain " src="/logo.png" alt="logo" />
-        <Box className="p-2  flex justify-center items-center gap-3">
-        <Box className="flex text-[#333] gap-5 hover:text-[#444] text-thin justify-center items-center mt-1  text-white h-[45px]">
+    <Box className="w-screen flex items-center justify-between  p-2 absolute top-0  z-20">
+        <img className="w-[184px]  md:block h-[33px] object-contain " src="/logo.png" alt="logo" />
+        <Box className="p-2  flex md:justify-center justify-between items-center gap-3">
+          <MenuIcon onClick={toggleDrawer(true)} className="md:hidden text-dark"/>
+        <Box className="md:flex hidden  gap-5 text-thin justify-center items-center mt-1  text-[#a9953c] h-[45px]">
          <a  className="" href="/">Home</a>
          <a href="/about">About</a>
         <a href="#">Contact</a>
@@ -41,8 +41,37 @@ function Header() {
         <a href="/auth/login">Login</a>
     </Box>
         </Box>
-        
+      
+          <Drawer
+            anchor='right'
+            open={state}
+            onClose={toggleDrawer(false)}
+            className=" w-screen flex flex-col gap-5 hover:text-[#444] text-thin justify-center items-center p-6 ">
+              <Box className="w-[80vw] flex flex-col bg-[#fff] p-2 items-center gap-4 h-screen text-[#000]">
+                <Box className="flex w-full justify-between items-center mb-3">
+                <CloseIcon onClick={toggleDrawer(false)}/>
+                <a href="/auth/login" className='border rounded-[15px] w-[80px] items-center flex justify-center text-center p-1 '>Login</a>
+                </Box>
+              <List sx={style}>
+              <ListItem className="mb-2">
+              <a  className="font-bold" href="/">Home</a>
+              </ListItem>
+              <ListItem className="mb-2">
+              <a  className="font-bold" href="/about">About</a>
+              </ListItem>
+              <ListItem className="mb-2">
+              <a  className="font-bold" href="#">Contact</a>
+              </ListItem>
+              <ListItem className="mb-2">
+              <a  className="font-bold" href="#">Social</a>
+              </ListItem>
+            </List>
+            
+              </Box>
+              
+          </Drawer>
     </Box>
+    
    
   )
 }

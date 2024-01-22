@@ -15,7 +15,7 @@ class Page extends Component {
       <Box>
         <Header/>
         <Carousel autoPlay infiniteLoop showThumbs={false} showStatus={false}>
-        <Box className="h-[100vh] w-full relative">
+        <Box className="h-[100vh] w-full relative overflow-x-hidden">
         <div style={{
           background:"linear-gradient(0deg, black, #08263dad)"
         }} className="absolute inset-0 flex flex-col items-center justify-center ">
@@ -56,7 +56,7 @@ class Page extends Component {
         </Box>
         </Carousel>
         <Box className="w-full h-full bg-black">
-           <Box className="flex flex-col-reverse md:flex-row lg:flex-row items-center justify-center p-20">
+           <Box className="flex flex-col-reverse md:flex-row lg:flex-row items-center justify-center md:p-20 p-6">
            <Box className="flex flex-col gap-5 ">
           <Box>
           <FormatQuoteIcon className="text-white text-[100px]"/>

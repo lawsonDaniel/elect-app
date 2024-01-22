@@ -8,6 +8,7 @@ import { getAuthUser } from "@/util/auth";
 
 import Menu from "./menu";
 import { Box, Typography } from "@mui/material";
+import { arrangeUser } from "@/util/arrangeUsers";
 
 type SidebarProps = {
   open: React.Dispatch<React.SetStateAction<boolean>>;
@@ -40,25 +41,7 @@ function Sidebar({ open, isOpen, activeUser,userData, setActiveUser, userInfo,se
     }
   },[searchValue])
 
-  useEffect(() => {
-    const handlePrivateMessage = (data: any) => {
-      setUserInfo((prevUsers: any) =>
-        [...prevUsers].sort((a: any, b: any) => {
-          if (a.id == data.senderId) return -1; // a comes first
-          if (b.id === data.senderId) return 1; // b comes first
-          return a.id - b.id; // otherwise, sort based on id
-        })
-      );
-    };
-    
-    
-    socket.on('privateMessage', handlePrivateMessage);
-
-    return () => {
-      socket.off('privateMessage', handlePrivateMessage);
-    };
-  }, [socket]);
-
+ 
   const handleNav = () => {
     setNav(!nav);
   };
