@@ -32,8 +32,10 @@ class User {
       public getSelf = async()=>{
         try{
             const res = await api.get(`/user/self`);
+            console.log(res,'res main')
              return res
          }catch(err:any){
+          console.log(err,'err main')
              throw new Error(err);
          }
       }

@@ -6,15 +6,11 @@ import {
      Typography,Button,Drawer,
      Divider,List,ListItem
  } from '@mui/material'
- import LocationOnIcon from '@mui/icons-material/LocationOn';
- import PhoneIcon from '@mui/icons-material/Phone';
- import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
- import DragHandleIcon from '@mui/icons-material/DragHandle';
  import MenuIcon from '@mui/icons-material/Menu';
  import CloseIcon from '@mui/icons-material/Close';
 
 function Header() {
-  const [state, setState] = React.useState(true)
+  const [state, setState] = React.useState(false)
   const toggleDrawer = (open:boolean) => (event: React.KeyboardEvent | React.MouseEvent) => {
     if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
       return;

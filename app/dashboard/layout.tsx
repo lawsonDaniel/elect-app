@@ -1,3 +1,4 @@
+
 import { Box } from "@mui/material"
 import SideBar from "@/components/Dashboard/sidebar"
 import Header from "@/components/Dashboard/header"
@@ -10,6 +11,7 @@ export default function RootLayout({
   }) {
     const cookieStore = cookies()
   let user:any = cookieStore.get('storedUser')
+ 
   if( user && typeof(user) === "string"){
     user = JSON.parse(user)
    
