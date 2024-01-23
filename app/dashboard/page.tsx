@@ -31,7 +31,7 @@ function Overview({user}:any) {
         <Box className="w-full h-[100vh] overflow-scroll bg-[#fff] rounded-lg">
           <Box className=" w-full h-full overflow-y-auto flex flex-col p-5 gap-5">
               <Box className="w-full  flex  gap-3">
-              <Box className="w-[120px] text-center h-[100px] bg-[#25d466] rounded-lg p-3 justify-center items-center">
+              <Box className="w-[120px] text-center h-[100px] bg-[#e2e2e2] rounded-lg p-3 justify-center items-center">
                 <Typography className="text-[12px] font-thin">Broadcast</Typography>
                 <Typography style={{
                     fontFamily: "'Libre Baskerville', 'serif'"
@@ -44,7 +44,7 @@ function Overview({user}:any) {
                   }} className="text-[54px]"> 35</Typography>
               </Box> */}
               </Box>
-              <Box className="bg-[#54bdeb] w-full md:w-[500px] p-2">
+              <Box className="bg-[#ececec] w-full md:w-[500px] p-2">
           <Typography style={{ fontWeight:100 }} className="text-[24px]">
            Broadcast
           </Typography>

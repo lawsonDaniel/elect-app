@@ -8,3 +8,6 @@
     background-image: url("../public/bg-chat-tile.png");
     background-color: #d1d7db;
 }
+.css-3dzjca-MuiPaper-root-MuiPopover-paper-MuiMenu-paper{
+    border-radius:20px
+}
