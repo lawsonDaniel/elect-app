@@ -94,7 +94,7 @@ function Header({users}:any) {
        <Chip label={user?.userType} />
        
        <Box className="flex gap-2 mt-1 cursor-pointer hover:bg-gray-100 w-full p-2 justify-center rounded-2xl" onClick={()=>{
-          window.location.href = "auth/login"
+          window.location.href = "./auth/login"
           logOut()
           setAnchorEl(null);
         }}>

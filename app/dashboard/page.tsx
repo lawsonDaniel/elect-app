@@ -31,7 +31,7 @@ function Overview({user}:any) {
         <Box className="w-full h-[100vh] overflow-scroll bg-[#fff] rounded-lg">
           <Box className=" w-full h-full overflow-y-auto flex flex-col p-5 gap-5">
               <Box className="w-full  flex  gap-3">
-              <Box className="w-[120px] text-center h-[100px] bg-[#e2e2e2] rounded-lg p-3 justify-center items-center">
+              <Box className="w-[150px] text-center h-[150px] bg-[#9264ff] text-white rounded-lg flex flex-col justify-center items-center">
                 <Typography className="text-[12px] font-thin">Broadcast</Typography>
                 <Typography style={{
                     fontFamily: "'Libre Baskerville', 'serif'"
@@ -44,27 +44,32 @@ function Overview({user}:any) {
                   }} className="text-[54px]"> 35</Typography>
               </Box> */}
               </Box>
-              <Box className="bg-[#ececec] w-full md:w-[500px] p-2">
-          <Typography style={{ fontWeight:100 }} className="text-[24px]">
-           Broadcast
-          </Typography>
-          <div className="overflow-y-auto "> {/* Adjust the height accordingly */}
-            <Box className="flex flex-col gap-3">
-              {notification.length > 0 ?
-                notification?.map((a: any, i: number) => {
-                  const date = a.time.split('T')[0];
-                  const time = a.time.split('T')[1].split('.')[0]
-                  return (
-                    <React.Fragment key={i}>
-                      <NotificationCard sender={a?.senderName.toUpperCase()} profileImg={a?.profileImg} date={date} time={time} message={a?.message} />
-                    </React.Fragment>
-                  );
-                })
-              : <Typography>No new Broadcast</Typography>
-              }
-    </Box>
-  </div>
+              
+{
+      notification.length > 0 && <Box className="bg-[#ececec] w-full md:w-[500px] p-2">
+      <Typography style={{ fontWeight:100 }} className="text-[24px]">
+       Broadcast
+      </Typography>
+      <div className="overflow-y-auto "> {/* Adjust the height accordingly */}
+        <Box className="flex flex-col gap-3">
+          {notification.length > 0 ?
+            notification?.map((a: any, i: number) => {
+              const date = a.time.split('T')[0];
+              const time = a.time.split('T')[1].split('.')[0]
+              return (
+                <React.Fragment key={i}>
+                  <NotificationCard sender={a?.senderName.toUpperCase()} profileImg={a?.profileImg} date={date} time={time} message={a?.message} />
+                </React.Fragment>
+              );
+            })
+          : <Typography>No new Broadcast</Typography>
+          }
 </Box>
+
+</div>
+</Box>
+
+    }
 
           </Box>
         
