@@ -45,7 +45,11 @@ const handleClickOpen = () => {
 const handleClose = () => {
   setOpen(false);
 };
-  
+  let arr =[100]
+  for (let i = 101; i < 700; i++) {
+    i%2 === 0 && arr.push(i)
+    
+}
   return (
     <Box className="p-4 bg-gray-200">
         <Link href="/dashboard/article">Back</Link>
@@ -96,7 +100,7 @@ const handleClose = () => {
                 // You can customize the block types here
               },
               fontSize: {
-                options: [8, 9, 10, 11, 12, 14, 16, 18, 24, 30, 36, 48, 60, 72, 96],
+                options: [8, 9, 10, 11, 12, 14, 16, 18, 24, 30, 36, 48, 60, 72, 96, 100, ...arr],
                 // You can customize the font sizes here
               },
               fontFamily: {
