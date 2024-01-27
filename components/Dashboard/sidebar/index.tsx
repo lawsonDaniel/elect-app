@@ -22,28 +22,28 @@ function SideBar() {
         <Box title="home"
         className="flex hover:md:bg-[#cfcfcf3d] lg:p-[20px] rounded-[10px]  flex-col md:flex-row items-center justify-center gap-1 lg:justify-start w-full lg:gap-[12px] h-[26px]" onClick={() => router.push('/dashboard')}>
             {
-             <DashboardIcon className={`text-[24px] ${ pathName === '/dashboard' ? 'text-[#008069]': 'text-[#ADAFBB]'}`}/>
+             <DashboardIcon className={`text-[24px] ${ pathName === '/dashboard' ? 'text-[#021fe8]': 'text-[#ADAFBB]'}`}/>
             }
-        <Typography className={`font-GilroyBold text-[12px] lg:text-[17px] sm:hidden  lg:block ${ pathName === '/dashboard' ? 'text-[#008069]': 'text-[#ADAFBB]'}`}>Home</Typography>
+        <Typography className={`font-GilroyBold text-[12px] lg:text-[17px] sm:hidden  lg:block ${ pathName === '/dashboard' ? 'text-[#021fe8]': 'text-[#ADAFBB]'}`}>Home</Typography>
         </Box>
         <Box title="chat" className="flex hover:md:bg-[#cfcfcf3d] lg:p-[20px] rounded-[10px]  flex-col md:flex-row items-center justify-center gap-1 lg:justify-start w-full lg:gap-[12px] h-[26px]" onClick={() => router.push('/dashboard/chat')}>
             {
-             <ChatIcon className={`text-[24px] ${ pathName === '/dashboard/chat' ? 'text-[#008069]': 'text-[#ADAFBB]'}`}/>
+             <ChatIcon className={`text-[24px] ${ pathName === '/dashboard/chat' ? 'text-[#021fe8]': 'text-[#ADAFBB]'}`}/>
             }
-        <Typography className={`font-GilroyBold text-[12px] lg:text-[17px] sm:hidden  lg:block ${ pathName === '/dashboard/chat' ? 'text-[#008069]': 'text-[#ADAFBB]'}`}>Chat</Typography>
+        <Typography className={`font-GilroyBold text-[12px] lg:text-[17px] sm:hidden  lg:block ${ pathName === '/dashboard/chat' ? 'text-[#021fe8]': 'text-[#ADAFBB]'}`}>Chat</Typography>
         </Box>
         <Box title="broadcast" className="flex hover:md:bg-[#cfcfcf3d] lg:p-[20px] rounded-[10px]  flex-col md:flex-row items-center justify-center gap-1 lg:justify-start w-full lg:gap-[12px] h-[26px]" onClick={() => router.push('/dashboard/message')}>
             {
-             <AnnouncementIcon  className={`text-[24px] ${ pathName.startsWith('/dashboard/message') ? 'text-[#008069]': 'text-[#ADAFBB]'}`}/>
+             <AnnouncementIcon  className={`text-[24px] ${ pathName.startsWith('/dashboard/message') ? 'text-[#021fe8]': 'text-[#ADAFBB]'}`}/>
             }
-        <Typography className={`font-GilroyBold text-[12px] lg:text-[17px] sm:hidden  lg:block ${ pathName.startsWith('/dashboard/message') ? 'text-[#008069]': 'text-[#ADAFBB]'}`}>BroadCast</Typography>
+        <Typography className={`font-GilroyBold text-[12px] lg:text-[17px] sm:hidden  lg:block ${ pathName.startsWith('/dashboard/message') ? 'text-[#021fe8]': 'text-[#ADAFBB]'}`}>BroadCast</Typography>
         </Box>
         <Box title="post" className="flex hover:md:bg-[#cfcfcf3d] lg:p-[20px] rounded-[10px]  flex-col md:flex-row items-center justify-center gap-1 lg:justify-start w-full lg:gap-[12px] h-[26px]" onClick={() => router.push('/dashboard/article')}>
             {
-            <PostAddIcon className={`text-[24px] ${pathName.startsWith('/dashboard/article') ? 'text-[#008069]' : 'text-[#ADAFBB]'}`} />
+            <PostAddIcon className={`text-[24px] ${pathName.startsWith('/dashboard/article') ? 'text-[#021fe8]' : 'text-[#ADAFBB]'}`} />
 
             }
-        <Typography className={`font-GilroyBold text-[12px] lg:text-[17px] sm:hidden  lg:block ${pathName.startsWith('/dashboard/article') ? 'text-[#008069]': 'text-[#ADAFBB]'}`}>Post</Typography>
+        <Typography className={`font-GilroyBold text-[12px] lg:text-[17px] sm:hidden  lg:block ${pathName.startsWith('/dashboard/article') ? 'text-[#021fe8]': 'text-[#ADAFBB]'}`}>Post</Typography>
         </Box>
 
        

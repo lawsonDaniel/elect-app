@@ -1,11 +1,14 @@
 "use client"
 import React, { useState, useEffect, useLayoutEffect } from 'react';
-import { Box, Button, Typography,DialogTitle,DialogContentText,DialogContent,DialogActions,Dialog } from '@mui/material';
+import { Box, Button, Typography,DialogTitle,DialogContentText,DialogContent,DialogActions,Dialog, Input,Alert } from '@mui/material';
 import { EditorState,convertFromRaw,convertToRaw } from 'draft-js';
 import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 import 'draft-js/dist/Draft.css';
 import dynamic from 'next/dynamic';
 import Link from 'next/link';
+import article from '@/app/api/article.class';
+import { LoadingButton } from '@mui/lab';
+;
 
 const DraftEditor = dynamic(
     () => import('react-draft-wysiwyg').then((mod) => mod.Editor),
@@ -13,12 +16,13 @@ const DraftEditor = dynamic(
 )
 function Article() {
   const [editorState, setEditorState] = useState(() => EditorState.createEmpty());
+  const [header,setHeader] = useState('')
   const [localV, setLocalV] = useState(false)
+  const [isLoading,setIsLoading] = useState(false)
+  const [message,setMessage] = useState('')
   useLayoutEffect(()=>{
     let prevArticle:any = localStorage.getItem('article')
     prevArticle && setEditorState(EditorState.createWithContent(convertFromRaw(JSON.parse(prevArticle))))
-  
-    
   },[])
   useEffect(()=>{
     let raw = convertToRaw(editorState.getCurrentContent())
@@ -30,6 +34,35 @@ function Article() {
     
     console.log(raw,'raw')
   },[editorState])
+  //post article
+  const postArticle = async()=>{
+    setIsLoading(true)
+    let prevArticle:any = localStorage.getItem('article')
+   try{
+    const res = await article.post({
+      article:prevArticle,
+      title : header
+    })
+    setMessage(res?.data?.message)
+    if(res?.data?.status){
+      setHeader('')
+      localStorage.setItem('article',"")
+      localStorage.removeItem('article')
+      setEditorState(EditorState.createEmpty())
+     setTimeout(()=>{
+      setMessage('')
+      handleClose()
+     },2000)
+    }
+    setIsLoading(false)
+    console.log(res,'sucessfully')
+   }catch(err){
+    
+    setIsLoading(false)
+    console.log(err)
+   }
+ 
+  }
   const handleEditorChange = (newEditorState:any) => {
     setEditorState(newEditorState);
     let raw = convertToRaw(editorState.getCurrentContent())
@@ -75,16 +108,24 @@ const handleClose = () => {
         </DialogTitle>
         <DialogContent>
           <DialogContentText id="alert-dialog-description">
-           Are you Sure you want to this upload post
+            <Box className="flex flex-col gap-2">
+              {message &&  <Alert severity="info">{message}</Alert>}
+            <Input value={header} placeholder='Title of Article' onChange={(e)=>{
+              setHeader(e.target.value)
+            }}/>
+         <Typography> Are you Sure you want to this upload Article</Typography>
+            </Box>
+           
           </DialogContentText>
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose} className="bg-[#c52c2cba] text-white">Cancle</Button>
-          <Button onClick={handleClose} className="bg-[#2cc588f1] text-white" autoFocus>
+          <Button onClick={handleClose} className="bg-[#c52c2cba] hover:bg-[#c52c2cba]  text-white">Cancle</Button>
+          <LoadingButton loading={isLoading} onClick={postArticle} className="bg-[#2cc588f1] hover:bg-[#2cc588f1] text-white" autoFocus>
           Continue
-          </Button>
+          </LoadingButton>
         </DialogActions>
       </Dialog>
+
         <Box className="w- h-[100vh] overflow-y-auto">
           <DraftEditor
             editorState={editorState}
