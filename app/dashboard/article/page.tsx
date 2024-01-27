@@ -26,7 +26,11 @@ function page() {
        <GridViewIcon/>
        <Typography>View Post</Typography>
        </Box>
-       <Box title="Edit All Created Post" className="bg-[#9264ff] text-white min-w-[150px] w-full h-full min-h-[150px] flex items-center justify-center flex-col border  rounded-[15px] cursor-pointer hover:scale-110">
+       <Box onClick={
+        ()=>{
+          window.location.href = "article/editpost"
+        }
+       } title="Edit All Created Post" className="bg-[#9264ff] text-white min-w-[150px] w-full h-full min-h-[150px] flex items-center justify-center flex-col border  rounded-[15px] cursor-pointer hover:scale-110">
        <EditIcon/>
        <Typography>Edit Post</Typography>
        </Box>

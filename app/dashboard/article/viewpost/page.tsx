@@ -21,10 +21,10 @@ function Page() {
         getArticleByUser()
     },[])
     return (
-        <Box className="p-4 bg-gray-200">
+        <Box className="p-4 mb-4 bg-gray-200">
             <Link href="/dashboard/article">Back</Link>
          
-                <Box className="flex mb-4 p-3 flex-col flex-wrap md:flex-row items-center justify-evenly gap-4 w-full">
+                <Box className="flex mb-[50px] p-3 flex-col flex-wrap md:flex-row items-center justify-evenly gap-4 w-full">
                     {
                        list.length >1 && list.map((a:any,i:number)=>{
                             return(

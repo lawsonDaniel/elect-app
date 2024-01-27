@@ -36,7 +36,7 @@ function Page() {
   return (
     <Box className="p-4 bg-gray-200">
     <Link href="/dashboard/article/viewpost">Back</Link>
-    <Box className="bg-white w-full h-screen">
+    <Box className="bg-white w-full h-screen overflow-y-auto mt-4">
     <div className="p-6" dangerouslySetInnerHTML={{ __html: html }} />
     </Box>
     </Box>
