@@ -113,7 +113,7 @@ const handleClose = () => {
             <Input value={header} placeholder='Title of Article' onChange={(e)=>{
               setHeader(e.target.value)
             }}/>
-         <Typography> Are you Sure you want to this upload Article</Typography>
+         <Typography> Are you Sure you want to upload this Article</Typography>
             </Box>
            
           </DialogContentText>

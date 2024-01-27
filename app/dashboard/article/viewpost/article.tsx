@@ -11,7 +11,7 @@ function Article({title,color,approved,id}:FUNCARG) {
   return (
     <Box onClick={()=>{
         window.location.href = `viewpost/${id}`
-    }} className="flex cursor-pointer  hover:scale-110 flex-col min-w-[200px] min-h-[200px] w-[400px] h-[400px]">
+    }} className="flex cursor-pointer  hover:scale-110 flex-col w-full min-h-[200px] md:w-[400px] h-[400px]">
     <Box style={{
          background: color
     }} className={`w-full h-[300px] flex items-center justify-center text-white text-[24px]`}>
