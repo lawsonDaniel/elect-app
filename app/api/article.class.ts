@@ -36,6 +36,7 @@ class Article {
     public approve = async(articleId:string)=>{
         try {
             const res =  await api.patch(`/article/approve/${articleId}`)
+            return res
         } catch (err:any) {
             throw new Error(err)
             
