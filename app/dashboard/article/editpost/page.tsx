@@ -20,7 +20,7 @@ function Page() {
             }
         }
         getArticleByUser()
-    },[])
+    },[list])
     console.log(list,"list")
   return (
    <Box className="p-4 mb-4 bg-gray-200">
@@ -31,6 +31,7 @@ function Page() {
     <Typography className="md:w-[150px] w-[50px] self-center justify-items-center text-[11px] md:text-[15px] text-center font-bold" >Status</Typography>
     <Typography  className="md:w-[150px] w-[50px] self-center justify-items-center text-[11px] md:text-[15px] text-center font-bold">Last Edit</Typography>
     <Typography className="md:w-[150px] w-[50px] self-center justify-items-center text-[11px] md:text-[15px] text-center font-bold">Edit</Typography>
+    <Typography className="md:w-[150px] w-[50px] self-center justify-items-center text-[11px] md:text-[15px] text-center font-bold">Approve</Typography>
     <Typography className="md:w-[150px] w-[50px] self-center justify-items-center text-[11px] md:text-[15px] text-center font-bold">Delete</Typography>
    
    </Box>

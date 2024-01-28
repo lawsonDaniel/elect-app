@@ -44,7 +44,8 @@ class Article {
 
     public delete = async(articleId:string)=>{
         try {
-            const res =  await api.delete(`/article/approve/${articleId}`)
+            const res =  await api.delete(`/article/delete/${articleId}`)
+            return res
         } catch (err:any) {
             throw new Error(err)
             
