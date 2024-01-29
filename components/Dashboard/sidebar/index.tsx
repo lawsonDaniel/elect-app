@@ -1,6 +1,6 @@
 "use client"
 import { Box, Typography } from '@mui/material'
-import React from 'react'
+import React,{useState,useLayoutEffect} from 'react'
 import Image from 'next/image'
 import {
     LuLayoutDashboard,
@@ -12,6 +12,7 @@ import DashboardIcon from '@mui/icons-material/Dashboard';
 import PostAddIcon from '@mui/icons-material/PostAdd';
 
 function SideBar() {
+
     const router = useRouter()
     let pathName:string = usePathname()
    
@@ -32,6 +33,7 @@ function SideBar() {
             }
         <Typography className={`font-GilroyBold text-[12px] lg:text-[17px] sm:hidden  lg:block ${ pathName === '/dashboard/chat' ? 'text-[#021fe8]': 'text-[#ADAFBB]'}`}>Chat</Typography>
         </Box>
+      
         <Box title="broadcast" className="flex hover:md:bg-[#cfcfcf3d] lg:p-[20px] rounded-[10px]  flex-col md:flex-row items-center justify-center gap-1 lg:justify-start w-full lg:gap-[12px] h-[26px]" onClick={() => router.push('/dashboard/message')}>
             {
              <AnnouncementIcon  className={`text-[24px] ${ pathName.startsWith('/dashboard/message') ? 'text-[#021fe8]': 'text-[#ADAFBB]'}`}/>
