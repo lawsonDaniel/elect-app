@@ -8,23 +8,30 @@ import ChatDialog from './chatDialog'
 
 
 function Chat() {
-    const [messageBarOpen,setMessageBarOpen] = useState<boolean>(true)
-    const [activeUser,setActiveUser] =  useState(null)
-    const [userInfo,setUserInfo] = useState<[]>([])
-    const [userData,setUserData] = useState<[]>([])
-    const [open, setOpen] = React.useState(false);
-
-   
-
-   useLayoutEffect(()=>{
-    if(userInfo && userInfo.length <1){
-      Socket.emit('getUser')
-     }
-    Socket.on('user',(data)=>{
-      setUserInfo(data)
-      setUserData(data)
-    })
-   },[])
+  const [messageBarOpen, setMessageBarOpen] = useState<boolean>(true);
+  const [activeUser, setActiveUser] = useState<any>(null); // Change type accordingly
+  const [userInfo, setUserInfo] = useState<any[]>([]); // Change type accordingly
+  const [userData, setUserData] = useState<any[]>([]); // Change type accordingly
+  const [open, setOpen] = React.useState<boolean>(false);
+  
+  useEffect(() => {
+    const preUser: any = localStorage.getItem("users");
+    if (preUser) {
+      const parsedData = JSON.parse(preUser);
+      setUserInfo(parsedData);
+      setUserData(parsedData);
+    }
+  }, []);
+  
+  useLayoutEffect(() => {
+    Socket.emit('getUser');
+    Socket.on('user', (data) => {
+      setUserInfo(data);
+      setUserData(data);
+      localStorage.setItem('users', JSON.stringify(data));
+    });
+  }, []);
+  
 
    
    console.log(userInfo,'user info')
