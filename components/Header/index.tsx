@@ -33,7 +33,7 @@ function Header() {
          <a  className="" href="/">Home</a>
          <a href="/about">About</a>
         <a href="#">Contact</a>
-        <a href="#">Social</a>
+        {/* <a href="#">Social</a> */}
         <a href="/auth/login">Login</a>
     </Box>
         </Box>
@@ -59,7 +59,7 @@ function Header() {
               <a  className="font-bold" href="#">Contact</a>
               </ListItem>
               <ListItem className="mb-2">
-              <a  className="font-bold" href="#">Social</a>
+              {/* <a  className="font-bold" href="#">Social</a> */}
               </ListItem>
             </List>
             
