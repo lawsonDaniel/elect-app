@@ -12,7 +12,7 @@ function Page() {
     const pathName = usePathname()
     const articleId = pathName.split("/dashboard/article/viewpost/")[1]
     console.log(pathName.split("/dashboard/article/viewpost/")[1],'pathName')
-   
+   const [list,setList] = useState([])
     
     const [html,setHtml]:any = useState(null)
     useLayoutEffect(()=>{

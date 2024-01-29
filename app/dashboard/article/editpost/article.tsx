@@ -7,9 +7,10 @@ interface FUNCARG {
     title: string;
     approved: boolean;
     id: string;
-    updatedAt: string
+    updatedAt: string;
+    user:any
 }
-function Article({ title, approved, id, updatedAt }: FUNCARG) {
+function Article({ title, approved, id, updatedAt ,user}: FUNCARG) {
     //handle dialog
     const [open, setOpen] = React.useState(false);
     const [loading,setLoading] = React.useState(false)
@@ -81,14 +82,15 @@ function Article({ title, approved, id, updatedAt }: FUNCARG) {
                 background: approved ? "rgba(0,128,0,0.11)" : "#ff000019"
             }} className="md:w-[150px]  w-[50px] self-center justify-items-center text-[11px] md:text-[15px] text-center" label={approved ? "live" : "in-review"} variant="outlined" />
             <Typography className="md:w-[150px] w-[50px] self-center justify-items-center text-[11px] md:text-[15px] text-center">{updatedAt}</Typography>
-            <Button  onClick={() => {
+            <Button disabled={approved}  onClick={() => {
                 window.location.href = `editpost/${id}`
             }} className="md:w-[150px] w-[50px] self-center justify-items-center text-[11px] md:text-[15px] text-center">Edit</Button>
-              
-                 <Button onClick={() => {
-                     approveArticle(id)
-                   
-                }} disabled={approved} className="md:w-[150px] w-[50px] self-center justify-items-center text-[11px] md:text-[15px] text-center">{!approved ? "Verify" : "Verified"}</Button>
+              {
+                user?.isAdmin && <Button onClick={() => {
+                    approveArticle(id)
+                  
+               }} disabled={approved} className="md:w-[150px] w-[50px] self-center justify-items-center text-[11px] md:text-[15px] text-center">{!approved ? "Verify" : "Verified"}</Button>
+              }  
             <Button onClick={handleClickOpen} className="md:w-[150px] bg-[#ff0000b1] hover:bg-[#ff0000b1] text-white w-[50px] self-center justify-items-center text-[11px] md:text-[15px] text-center">Delete</Button>
         </Box>
     )

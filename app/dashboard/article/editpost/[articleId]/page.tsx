@@ -18,7 +18,6 @@ const DraftEditor = dynamic(
 function ArticleEdit() {
   const [editorState, setEditorState] = useState(EditorState.createEmpty());
   const [localV, setLocalV] = useState(false);
-  const [header, setHeader] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [message, setMessage] = useState('');
   const [open, setOpen] = useState(false);
@@ -57,18 +56,17 @@ function ArticleEdit() {
     const prevArticle = localStorage.getItem('articleEdit');
 
     try {
-      const res = await article.post({
-        article: prevArticle,
-        title: header,
+      const res = await article.edit(articleId,{
+        article: prevArticle
       });
 
       setMessage(res?.data?.message);
 
       if (res?.data?.status) {
-        setHeader('');
+       
         localStorage.setItem('articleEdit', '');
         localStorage.removeItem('articleEdit');
-        setEditorState(EditorState.createEmpty());
+     
 
         setTimeout(() => {
           setMessage('');
@@ -130,10 +128,8 @@ function ArticleEdit() {
           <DialogContentText id="alert-dialog-description">
             <Box className="flex flex-col gap-2">
               {message &&  <Alert severity="info">{message}</Alert>}
-            <Input value={header} placeholder='Title of Article' onChange={(e)=>{
-              setHeader(e.target.value)
-            }}/>
-         <Typography> Are you Sure you want to upload this Article</Typography>
+          
+         <Typography> Are you Sure you want to Edit this Article</Typography>
             </Box>
            
           </DialogContentText>

@@ -43,6 +43,18 @@ class Article {
         }
     }
 
+    public edit = async(articleId:string,data:any)=>{
+        try {
+            const res =  await api.patch(`/article/edit/${articleId}`,data)
+            return res
+        } catch (err:any) {
+            throw new Error(err)
+            
+        }
+        
+    }
+    
+
     public delete = async(articleId:string)=>{
         try {
             const res =  await api.delete(`/article/delete/${articleId}`)
