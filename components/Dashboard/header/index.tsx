@@ -11,11 +11,15 @@ import UploadImageModel from '@/app/dashboard/Profile'
 import Chip from '@mui/material/Chip';
 import { UserClass } from '@/app/api/user.class'
 import { logOut } from '@/util/auth'
+import NotificationsIcon from '@mui/icons-material/Notifications';
+import { Socket } from '@/app/api/socket'
 
 function Header({users}:any) {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const [anchorEl2, setAnchorEl2] = useState<null | HTMLElement>(null);
+  const [anchorEl3, setAnchorEl3] = useState<null | HTMLElement>(null);
   const [profileOpen,setProfileOpen] = React.useState<boolean>(false)
+  const [notfication,setNotification] =  React.useState([])
   const [user, setUser] = useState<any>(null);
   const handleProfileOpen = () => setProfileOpen(true);
   const handleProfileClose = () => setProfileOpen(false);
@@ -28,12 +32,23 @@ function Header({users}:any) {
         console.error('Error fetching user data:', error);
       }
     };
-
+    console.log('reaching here 1')
+   
     fetchData();
   }, []);
-
+  console.log('reaching here 2')
+  useEffect(()=>{
+    Socket.emit("getNotification")
+  },[])
+  Socket.on('newNotification',(data)=>{
+    console.log('reaching here 3')
+    setNotification(data)
+    console.log(data,'from new notfication')
+  })
+  console.log(notfication,"notification")
   const open = Boolean(anchorEl);
   const open2 = Boolean(anchorEl2);
+  const open3 = Boolean(anchorEl3);
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     setAnchorEl(event.currentTarget);
   };
@@ -43,6 +58,12 @@ function Header({users}:any) {
   const handleClick2 = (event: React.MouseEvent<HTMLButtonElement>) => {
     setAnchorEl2(event.currentTarget);
   };
+  const handleClick3 = (event: React.MouseEvent<HTMLButtonElement>) => {
+    setAnchorEl3(event.currentTarget);
+  };
+  const handleClose3 = () => {
+    setAnchorEl3(null);
+  };
   const handleClose2 = () => {
     setAnchorEl2(null);
   };
@@ -51,7 +72,8 @@ function Header({users}:any) {
     <Box className="flex bg-[#f0f2f5] text-[#546570] md:rounded-[44px]  h-[64px] items-center px-[30px] py-[11px] justify-between">
        <Typography>IEEE Project</Typography>
        <div>
-      <Button
+        <Box className="flex gap-2 items-center justify-center">
+        <Button
         id="basic-button"
         aria-controls={open ? 'basic-menu' : undefined}
         aria-haspopup="true"
@@ -60,6 +82,11 @@ function Header({users}:any) {
       >
        <img className="rounded-[100%] object-cover w-[38px] h-[38px]" width={38} height={38}  src={user?.profileImg} alt={' profile image'} />
       </Button>
+        <Badge onClick={handleClick3}  color="secondary" badgeContent={notfication.length ? notfication.length : 0 }>
+          <NotificationsIcon />
+        </Badge>
+        </Box>
+      
      
       <Menu
         id="basic-menu"
@@ -76,6 +103,7 @@ function Header({users}:any) {
             <CloseIcon onClick={handleClose}/>
           </Box>
        <Box className="mt-3">
+
        <Badge
        onClick={()=>{
         handleProfileOpen();
@@ -104,6 +132,38 @@ function Header({users}:any) {
     
         </Box>
     
+      </Menu>
+      <Menu
+        id="basic-menu"
+        anchorEl={anchorEl3}
+        open={open3}
+        onClose={handleClose3}
+        MenuListProps={{
+          'aria-labelledby': 'basic-button',
+        }}
+      >
+        <Box  className="md:w-[300px] w-full h-full p-3 flex flex-col gap-4  items-center">
+          <Box className="flex  w-full">
+            <Typography className="text-center w-full" >Unread Notification</Typography>
+            <CloseIcon onClick={handleClose3}/>
+          </Box>
+       <Box className="mt-3 flex flex-col gap-3">
+      {
+       notfication.map((a:any,i:number)=>{
+        return(
+         <Box title={a?.notificationType
+         } className="p-x-4 text-center border-[.5px] p-2 w-full h-[110%] rounded-2xl border-gray-500 cursor-pointer"  key={i} >
+          {/* <Typography className="font-bold text-[16px]">{a?.notificationType
+         }</Typography> */}
+          <Typography className="text-[15px]">{a?.notificationContent}</Typography>
+          </Box>
+
+        )
+        })
+      }
+      {notfication.length ===0 && (<Typography>No Unread Notifications</Typography>)}
+     </Box>
+    </Box>
       </Menu>
       <Menu 
        id="basic-menu"

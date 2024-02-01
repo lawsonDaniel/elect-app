@@ -1,6 +1,7 @@
+/* eslint-disable react/no-unescaped-entities */
 /* eslint-disable @next/next/no-img-element */
 "use client"
-import React, { Component } from 'react';
+import React, { Component, useLayoutEffect,useState } from 'react';
 import Header from '@/components/Header';
 import { Box, Button, Typography } from '@mui/material';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
@@ -8,9 +9,22 @@ import { Carousel } from 'react-responsive-carousel';
 import Card from '@/components/Card';
 import Footer from '@/components/Footer';
 import FormatQuoteIcon from '@mui/icons-material/FormatQuote';
+import article from './api/article.class';
 
-class Page extends Component {
-  render() {
+const Page  = ()=> {
+  const [allArticle,setArticle] = useState([])
+    useLayoutEffect(()=>{
+      async function fetchData() {
+        try{
+          const res = await article.getAll()
+          setArticle(res?.data?.data)
+          console.log(res?.data?.data,'response')
+        }catch(err){
+          console.log(err)
+        }
+      }
+    fetchData()
+    })
     return (
       <Box>
         <Header/>
@@ -82,9 +96,15 @@ class Page extends Component {
            }} className="text-[#000] text-[34px] font-medium	 my-1 text-center">STUDENTS’ <span className="text-[#08A1D7]">PORTAL</span></Typography>
            
            <Box className="flex flex-wrap gap-3 my-4 justify-evenly items-center">
-              <Card/>
-              <Card/>
-              <Card/>
+            {
+              allArticle.map((a:any,i:number)=>{
+                return (
+                  <React.Fragment key={i}>
+                    <Card/>
+                  </React.Fragment>
+                )
+              })
+            }
            </Box>
            <Box className="w-full flex justify-center">
            <Button className="bg-[#08A1D7] hover:bg-[#08A1D7] text-[#fff] h-[56px] w-[200px]" variant="contained">View More</Button>
@@ -95,6 +115,6 @@ class Page extends Component {
       </Box>
     );
   }
-}
+
 
 export default Page;
