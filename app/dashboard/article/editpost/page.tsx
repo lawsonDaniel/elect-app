@@ -53,7 +53,7 @@ function Page() {
    </Box>
    <Box className="bg-[#33333365] h-[1px] w-full"></Box>
       {
-                       list.length >1 && list.map((a:any,i:number)=>{
+                       list.length >=1 && list.map((a:any,i:number)=>{
                             return(
                                 <React.Fragment key={i}>
                                 <Article user={user} updatedAt={a.updatedAt.split("T")[0]} title={a.title} id={a.id} approved={a.approved}/>

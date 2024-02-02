@@ -30,7 +30,7 @@ function Overview({user}:any) {
         getArticleByUser()
     },[])
     const approvedCount = list.reduce((count:any, obj:any) => obj.approved === true ? count + 1 : count, 0);
-
+    console.log(notification,'new value for the over view....list')
   const getMessage = async()=>{
     try{
       const res = await MessageClass.getStaffMessage()
@@ -40,9 +40,11 @@ function Overview({user}:any) {
       console.log(err);
     }
   }
+
   useEffect(()=>{
     getMessage()
   },[])
+  console.log(notification,'notification')
   return (
     <Box className="" >
         <Box className="w-full h-[100vh] overflow-scroll bg-[#fff] rounded-lg">
@@ -75,7 +77,7 @@ function Overview({user}:any) {
               </Box>
               
 {
-      notification.length > 0 && <Box className="bg-[#ececec] w-full md:w-[500px] p-2">
+      notification.length > 0 && <Box className="bg-[#ececec] w-full p-5 mb-[50px]">
       <Typography style={{ fontWeight:100 }} className="text-[24px]">
        Broadcast
       </Typography>
@@ -87,7 +89,7 @@ function Overview({user}:any) {
               const time = a.time.split('T')[1].split('.')[0]
               return (
                 <React.Fragment key={i}>
-                  <NotificationCard sender={a?.senderName.toUpperCase()} profileImg={a?.profileImg} date={date} time={time} message={a?.message} />
+                  <NotificationCard level={a?.level} sender={a?.senderName.toUpperCase()} profileImg={a?.profileImg} date={date} time={time} message={a?.message} />
                 </React.Fragment>
               );
             })

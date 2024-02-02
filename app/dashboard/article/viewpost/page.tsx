@@ -20,13 +20,14 @@ function Page() {
         }
         getArticleByUser()
     },[])
+    console.log(list,'listttt from veiw')
     return (
         <Box className="p-4 mb-4 bg-gray-200">
             <Link href="/dashboard/article">Back</Link>
          
                 <Box className="flex mb-[50px] p-3 flex-col flex-wrap md:flex-row items-center justify-evenly gap-4 w-full">
                     {
-                       list.length >1 && list.map((a:any,i:number)=>{
+                       list.length >=1 && list.map((a:any,i:number)=>{
                             return(
                                 <React.Fragment key={i}>
                                 <Article title={a.title} id={a.id} color={`#${i > 9 ? String(i).split("")[1] : i}21fe8`} approved={a.approved}/>

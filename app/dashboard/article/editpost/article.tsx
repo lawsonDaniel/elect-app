@@ -89,9 +89,9 @@ function Article({ title, approved, id, updatedAt ,user}: FUNCARG) {
                 user?.isAdmin && <Button onClick={() => {
                     approveArticle(id)
                   
-               }} disabled={approved} className="md:w-[150px] w-[50px] self-center justify-items-center text-[11px] md:text-[15px] text-center">{!approved ? "Verify" : "Verified"}</Button>
+               }} disabled={approved} className="md:w-[150px] w-[50px] min-w-[50px] self-center justify-items-center text-[11px] md:text-[15px] text-center">{!approved ? "Verify" : "Verified"}</Button>
               }  
-            <Button onClick={handleClickOpen} className="md:w-[150px] bg-[#ff0000b1] hover:bg-[#ff0000b1] text-white w-[50px] self-center justify-items-center text-[11px] md:text-[15px] text-center">Delete</Button>
+            <Button onClick={handleClickOpen} className="md:w-[150px] min-w-[50px] bg-[#ff0000b1] hover:bg-[#ff0000b1] text-white w-[50px] self-center justify-items-center text-[11px] md:text-[15px] text-center">Delete</Button>
         </Box>
     )
 }
