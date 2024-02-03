@@ -11,7 +11,7 @@ import {
 
 function Header() {
   const [state, setState] = React.useState(false)
-  const toggleDrawer = (open:boolean) => (event: React.KeyboardEvent | React.MouseEvent) => {
+  const toggleDrawer = (open:boolean) => (event: React.KeyboardEvent | React.MouseEvent | any) => {
     if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
       return;
     }
