@@ -106,7 +106,7 @@ function Message() {
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
                 error={formik.touched.message && Boolean(formik.errors.message)}
-                helperText={formik.touched.message && formik.errors.message}
+                helperText={formik.touched.message && String(formik.errors.message)}
                 multiline  // Set to true to enable multiline
                 rows={4}    // Adjust the number of visible rows as needed
                 placeholder='Enter your message'

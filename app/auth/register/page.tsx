@@ -143,7 +143,7 @@ function Register() {
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
               error={formik.touched.email && Boolean(formik.errors.email)}
-              helperText={formik.touched.email && formik.errors.email}
+              helperText={formik.touched.email && String(formik.errors.email)}
             />
 
             <TextField
@@ -156,7 +156,7 @@ function Register() {
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
               error={formik.touched.phoneNumber && Boolean(formik.errors.phoneNumber)}
-              helperText={formik.touched.phoneNumber && formik.errors.phoneNumber}
+              helperText={formik.touched.phoneNumber && String(formik.errors.phoneNumber)}
             />
 
             <TextField
@@ -169,7 +169,7 @@ function Register() {
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
               error={formik.touched.fullName && Boolean(formik.errors.fullName)}
-              helperText={formik.touched.fullName && formik.errors.fullName}
+              helperText={formik.touched.fullName && String(formik.errors.fullName)}
             />
 
             <FormControl fullWidth>
@@ -203,7 +203,7 @@ function Register() {
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
               error={formik.touched.password && Boolean(formik.errors.password)}
-              helperText={formik.touched.password && formik.errors.password}
+              helperText={formik.touched.password && String(formik.errors.password)}
             />
 
           <TextField
@@ -217,7 +217,7 @@ function Register() {
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
               error={formik.touched.confirmPassword && Boolean(formik.errors.confirmPassword)}
-              helperText={formik.touched.confirmPassword && formik.errors.confirmPassword}
+              helperText={formik.touched.confirmPassword && String(formik.errors.confirmPassword)}
             />
 
             <LoadingButton
