@@ -35,10 +35,10 @@ const Page  = ()=> {
         }} className="absolute inset-0 flex flex-col items-center justify-center ">
             <Typography style={{
             fontFamily: "'Libre Baskerville', 'serif'"
-           }} className="text-center tracking-[3px] w-[100%] text-[30px]  lg:text-[55px] text-[35px] font-lighter text-white">
+           }} className="text-center tracking-[3px] w-[100%] text-[30px]  lg:text-[55px] md:text-[35px] font-lighter text-white">
             Engineering Tomorrow's Dreams
             </Typography>
-            <Typography className="text-white w-[70%] font-thin text-18 tracking-wider">Unleash the power of innovation with our cutting-edge engineering solutions. Building a future where dreams become reality.</Typography>
+            <Typography className="text-white w-[70%] font-thin text-[18px] tracking-wider">Unleash the power of innovation with our cutting-edge engineering solutions. Building a future where dreams become reality.</Typography>
         </div>
         <img className="h-full w-full object-cover" src="img1.jpeg" alt="Image 1" />
         </Box>
@@ -48,10 +48,10 @@ const Page  = ()=> {
         }} className="absolute inset-0 flex flex-col items-center justify-center ">
             <Typography style={{
             fontFamily: "'Libre Baskerville', 'serif'"
-           }} className="text-center tracking-[3px] w-[100%] text-[30px]  lg:text-[55px] text-[35px] font-lighter text-white">
+           }} className="text-center tracking-[3px] w-[100%] text-[30px]  lg:text-[55px] md:text-[35px] font-lighter text-white">
             Precision Redefined
             </Typography>
-            <Typography className="text-white w-[70%] font-thin text-18 tracking-wider">Experience engineering at its finest. Redefining precision to propel us into a future where progress knows no bounds.</Typography>
+            <Typography className="text-white w-[70%] font-thin text-[18px] tracking-wider">Experience engineering at its finest. Redefining precision to propel us into a future where progress knows no bounds.</Typography>
         </div>
         <img className="h-full w-full object-cover" src="img2.jpeg" alt="Image 1" />
         </Box>
@@ -61,10 +61,10 @@ const Page  = ()=> {
         }}  className="absolute inset-0 flex flex-col items-center justify-center ">
             <Typography style={{
             fontFamily: "'Libre Baskerville', 'serif'"
-           }} className="text-center tracking-[3px] w-[100%] text-[30px]  lg:text-[55px] text-[35px] font-lighter text-white">
+           }} className="text-center tracking-[3px] w-[100%] text-[30px]  lg:text-[55px] md:text-[35px] font-lighter text-white">
             Crafting the Future
             </Typography>
-            <Typography className="text-white w-[70%] font-thin text-18 tracking-wider ">Experience engineering at its Join us on a journey of relentless innovation. Together, we craft a future where each breakthrough shapes the world we aspire to build.</Typography>
+            <Typography className="text-white w-[70%] font-thin text-[18px] tracking-wider ">Experience engineering at its Join us on a journey of relentless innovation. Together, we craft a future where each breakthrough shapes the world we aspire to build.</Typography>
         </div>
         <img className="h-full w-full object-cover" src="img3.jpeg" alt="Image 1" />
         </Box>
