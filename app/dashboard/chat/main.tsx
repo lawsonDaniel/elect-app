@@ -97,7 +97,7 @@ function Main({ activeUser, userInfo,setOpen,setUserInfo }: MainProps) {
     setChat('');
   };
 
-  const sortedMessages = [...message].sort((a:any, b:any) => new Date(a.createdAt) - new Date(b.createdAt));
+  const sortedMessages = [...message].sort((a:any, b:any) => Number(new Date(a.createdAt)) - Number(new Date(b.createdAt)));
 
   return (
     <Box>
