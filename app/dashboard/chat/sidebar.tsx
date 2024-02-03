@@ -93,7 +93,7 @@ function Sidebar({ open, isOpen, activeUser,userData, setActiveUser, userInfo,se
             isOpen={isOpen}
             name={user?.fullName}
             you={userRecevier?.id === user?.id }
-            message = {user?.active ? 'active' : `${(new Date() - new Date(user?.lastseen)) / 60000 < 1 ? 'just now' : (new Date() - new Date(user?.lastseen)) / 60000 < 60 ? Math.floor((new Date() - new Date(user?.lastseen)) / 60000) + ' minutes ago' : (new Date() - new Date(user?.lastseen)) / 3600000 < 24 ? Math.floor((new Date() - new Date(user?.lastseen)) / 3600000) + ' hours ago' : (new Date() - new Date(user?.lastseen)) / 86400000 < 30 ? Math.floor((new Date() - new Date(user?.lastseen)) / 86400000) + ' days ago' : new Date(user?.lastseen).toLocaleDateString()}`}
+            message = {user?.active ? 'active' : `${(Number(new Date()) - Number(new Date(user?.lastseen))) / 60000 < 1 ? 'just now' : (new Date() - new Date(user?.lastseen)) / 60000 < 60 ? Math.floor((new Date() - new Date(user?.lastseen)) / 60000) + ' minutes ago' : (new Date() - new Date(user?.lastseen)) / 3600000 < 24 ? Math.floor((new Date() - new Date(user?.lastseen)) / 3600000) + ' hours ago' : (new Date() - new Date(user?.lastseen)) / 86400000 < 30 ? Math.floor((new Date() - new Date(user?.lastseen)) / 86400000) + ' days ago' : new Date(user?.lastseen).toLocaleDateString()}`}
             top={0}
             sideBarOpen={activeUser === index && true}
             onClick={() => {
