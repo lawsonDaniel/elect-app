@@ -34,7 +34,8 @@ const Page  = ()=> {
           background:"linear-gradient(0deg, black, #08263dad)"
         }} className="absolute inset-0 flex flex-col items-center justify-center ">
             <Typography style={{
-            fontFamily: "'Libre Baskerville', 'serif'"
+            fontFamily: "'Libre Baskerville', 'serif'",
+            fontSize:'30px'
            }} className="text-center tracking-[3px] w-[100%] text-[30px]  lg:text-[55px] md:text-[35px] font-lighter text-white">
             Engineering Tomorrow's Dreams
             </Typography>
@@ -47,7 +48,8 @@ const Page  = ()=> {
           background:"linear-gradient(0deg, black, #08263dad)"
         }} className="absolute inset-0 flex flex-col items-center justify-center ">
             <Typography style={{
-            fontFamily: "'Libre Baskerville', 'serif'"
+            fontFamily: "'Libre Baskerville', 'serif'",
+            fontSize:'30px'
            }} className="text-center tracking-[3px] w-[100%] text-[30px]  lg:text-[55px] md:text-[35px] font-lighter text-white">
             Precision Redefined
             </Typography>
@@ -60,7 +62,8 @@ const Page  = ()=> {
           background:"linear-gradient(0deg, black, #08263dad)"
         }}  className="absolute inset-0 flex flex-col items-center justify-center ">
             <Typography style={{
-            fontFamily: "'Libre Baskerville', 'serif'"
+            fontFamily: "'Libre Baskerville', 'serif'",
+            fontSize:'30px'
            }} className="text-center tracking-[3px] w-[100%] text-[30px]  lg:text-[55px] md:text-[35px] font-lighter text-white">
             Crafting the Future
             </Typography>
@@ -75,7 +78,8 @@ const Page  = ()=> {
           <Box>
           <FormatQuoteIcon className="text-white text-[100px]"/>
                         <Typography style={{
-                      fontFamily: "'Libre Baskerville', 'serif'"
+                      fontFamily: "'Libre Baskerville', 'serif'",
+                      fontSize:'30px'
                     }} className='text-white text-[40px] md:text-[30px] lg:text-[40px] w-[100%] md:w-[100%] lg:w-[70%]  text-bold capitalize'>As electrical engineers, we illuminate the path of innovation,  wiring the future with sparks of  creativity and circuits of progress</Typography>
           </Box>
            <Box>
@@ -92,7 +96,8 @@ const Page  = ()=> {
         </Box>
         <Box className="p-4 flex flex-col bg-[#f0f0f0de]">
            <Typography style={{
-            fontFamily: "'Libre Baskerville', 'serif'"
+            fontFamily: "'Libre Baskerville', 'serif'",
+            fontSize:'30px'
            }} className="text-[#000] text-[34px] font-medium	 my-1 text-center">STUDENTS’ <span className="text-[#08A1D7]">PORTAL</span></Typography>
            
            <Box className="flex flex-wrap gap-3 my-4 justify-evenly items-center">
