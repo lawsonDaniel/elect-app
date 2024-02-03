@@ -40,7 +40,7 @@ const Page  = ()=> {
             </Typography>
             <Typography className="text-white w-[70%] font-thin text-18 tracking-wider">Unleash the power of innovation with our cutting-edge engineering solutions. Building a future where dreams become reality.</Typography>
         </div>
-        <img className="h-full w-full object-cover" src="img1.jpg" alt="Image 1" />
+        <img className="h-full w-full object-cover" src="img1.jpeg" alt="Image 1" />
         </Box>
         <Box className="h-[100vh] w-full relative">
         <div style={{
@@ -53,7 +53,7 @@ const Page  = ()=> {
             </Typography>
             <Typography className="text-white w-[70%] font-thin text-18 tracking-wider">Experience engineering at its finest. Redefining precision to propel us into a future where progress knows no bounds.</Typography>
         </div>
-        <img className="h-full w-full object-cover" src="img2.jpg" alt="Image 1" />
+        <img className="h-full w-full object-cover" src="img2.jpeg" alt="Image 1" />
         </Box>
           <Box className="h-[100vh] w-full relative">
         <div style={{
@@ -66,7 +66,7 @@ const Page  = ()=> {
             </Typography>
             <Typography className="text-white w-[70%] font-thin text-18 tracking-wider ">Experience engineering at its Join us on a journey of relentless innovation. Together, we craft a future where each breakthrough shapes the world we aspire to build.</Typography>
         </div>
-        <img className="h-full w-full object-cover" src="img3.jpg" alt="Image 1" />
+        <img className="h-full w-full object-cover" src="img3.jpeg" alt="Image 1" />
         </Box>
         </Carousel>
         <Box className="w-full h-full bg-black">
