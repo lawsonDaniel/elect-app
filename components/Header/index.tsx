@@ -11,7 +11,7 @@ import {
 
 function Header() {
   const [state, setState] = React.useState(false)
-  const toggleDrawer = (open:boolean) => (event: React.KeyboardEvent | React.MouseEvent | any) => {
+  const toggleDrawer = (open:boolean) => (event:  any) => {
     if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
       return;
     }
@@ -28,7 +28,7 @@ function Header() {
     <Box className="w-screen flex items-center justify-between  p-2 absolute top-0  z-20">
         <img className="w-[184px]  md:block h-[33px] object-contain " src="/logo.png" alt="logo" />
         <Box className="p-2  flex md:justify-center justify-between items-center gap-3">
-        <MenuIcon onClick={() => toggleDrawer(true)} className="md:hidden lg:hidden sm:block text-dark"/>
+         <MenuIcon onClick={toggleDrawer(true)} className="md:hidden text-dark"/>
         <Box className="md:flex hidden  gap-5 text-thin justify-center items-center mt-1  text-[#a9953c] h-[45px]">
          <a  className="" href="/">Home</a>
          <a href="/about">About</a>
