@@ -28,8 +28,8 @@ const Page  = ()=> {
     return (
       <Box>
         <Header/>
-        <Carousel autoPlay infiniteLoop showThumbs={false} showStatus={false}>
-        <Box className="h-[100vh] w-full relative overflow-x-hidden">
+        <Carousel className='md:h-[100vh] h-[70vh]' autoPlay infiniteLoop showThumbs={false} showStatus={false}>
+        <Box className="h-[70vh] w-full relative overflow-x-hidden">
         <div style={{
           background:"linear-gradient(0deg, black, #08263dad)"
         }} className="absolute inset-0 flex flex-col items-center justify-center ">
@@ -41,9 +41,9 @@ const Page  = ()=> {
             </Typography>
             <Typography className="text-white w-[70%] font-thin text-[18px] tracking-wider">Unleash the power of innovation with our cutting-edge engineering solutions. Building a future where dreams become reality.</Typography>
         </div>
-        <img className="h-full w-full object-cover" src="img1.jpeg" alt="Image 1" />
+        <img className="h-[70vh] w-full object-cover" src="img1.jpeg" alt="Image 1" />
         </Box>
-        <Box className="h-[100vh] w-full relative">
+        <Box className="h-[70vh] w-full relative">
         <div style={{
           background:"linear-gradient(0deg, black, #08263dad)"
         }} className="absolute inset-0 flex flex-col items-center justify-center ">
@@ -55,9 +55,9 @@ const Page  = ()=> {
             </Typography>
             <Typography className="text-white w-[70%] font-thin text-[18px] tracking-wider">Experience engineering at its finest. Redefining precision to propel us into a future where progress knows no bounds.</Typography>
         </div>
-        <img className="h-full w-full object-cover" src="img2.jpeg" alt="Image 1" />
+        <img className="h-[70vh] w-full object-cover" src="img2.jpeg" alt="Image 1" />
         </Box>
-          <Box className="h-[100vh] w-full relative">
+          <Box className="h-[70vh] w-full relative">
         <div style={{
           background:"linear-gradient(0deg, black, #08263dad)"
         }}  className="absolute inset-0 flex flex-col items-center justify-center ">
@@ -69,10 +69,10 @@ const Page  = ()=> {
             </Typography>
             <Typography className="text-white w-[70%] font-thin text-[18px] tracking-wider ">Experience engineering at its Join us on a journey of relentless innovation. Together, we craft a future where each breakthrough shapes the world we aspire to build.</Typography>
         </div>
-        <img className="h-full w-full object-cover" src="img3.jpeg" alt="Image 1" />
+        <img className="h-[70vh] w-full object-cover" src="img3.jpeg" alt="Image 1" />
         </Box>
         </Carousel>
-        <Box className="w-full h-full bg-black">
+        <Box className="w-full h-[70vh] bg-black">
            <Box className="flex flex-col-reverse md:flex-row lg:flex-row items-center justify-center md:p-20 p-6">
            <Box className="flex flex-col gap-5 ">
           <Box>

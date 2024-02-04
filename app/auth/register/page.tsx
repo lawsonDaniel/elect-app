@@ -79,7 +79,8 @@ function Register() {
       }
       setIsLoading(false)
       console.log(res)
-    } catch (err) {
+    } catch (err:any) {
+      setErrorMessage(err?.message)
       setIsLoading(false)
       console.error(err)
     }
@@ -143,7 +144,7 @@ function Register() {
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
               error={formik.touched.email && Boolean(formik.errors.email)}
-              helperText={formik.touched.email && String(formik.errors.email)}
+              helperText={formik.touched.email && typeof(formik.touched.email) !== "undefined" && String(formik.errors.email)}
             />
 
             <TextField
@@ -156,7 +157,7 @@ function Register() {
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
               error={formik.touched.phoneNumber && Boolean(formik.errors.phoneNumber)}
-              helperText={formik.touched.phoneNumber && String(formik.errors.phoneNumber)}
+              helperText={formik.touched.phoneNumber && typeof(formik.touched.phoneNumber) !== "undefined" && String(formik.errors.phoneNumber)}
             />
 
             <TextField
@@ -169,7 +170,7 @@ function Register() {
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
               error={formik.touched.fullName && Boolean(formik.errors.fullName)}
-              helperText={formik.touched.fullName && String(formik.errors.fullName)}
+              helperText={formik.touched.fullName && typeof(formik.touched.fullName) !== "undefined" && String(formik.errors.fullName)}
             />
 
             <FormControl fullWidth>
@@ -203,7 +204,7 @@ function Register() {
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
               error={formik.touched.password && Boolean(formik.errors.password)}
-              helperText={formik.touched.password && String(formik.errors.password)}
+              helperText={formik.touched.password && typeof(formik.touched.password) !== "undefined" && String(formik.errors.password)}
             />
 
           <TextField
@@ -217,7 +218,7 @@ function Register() {
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
               error={formik.touched.confirmPassword && Boolean(formik.errors.confirmPassword)}
-              helperText={formik.touched.confirmPassword && String(formik.errors.confirmPassword)}
+              helperText={formik.touched.confirmPassword && typeof(formik.touched.confirmPassword) !== "undefined" && String(formik.errors.confirmPassword)}
             />
 
             <LoadingButton

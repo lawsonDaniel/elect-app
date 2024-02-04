@@ -62,7 +62,8 @@ function Login() {
         }
         setIsLoading(false)
         console.log(res)
-      } catch (err) {
+      } catch (err:any) {
+        setErrorMessage(err?.message)
         setIsLoading(false)
         console.error(err)
       }
@@ -125,7 +126,7 @@ function Login() {
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
               error={formik.touched.email && Boolean(formik.errors.email)}
-              helperText={formik.touched.email && String(formik.errors.email)}
+              helperText={formik.touched.email && String(formik.touched.email) !== "undefined" && String(formik.errors.email)}
             />
             <TextField
               className='w-full'
@@ -138,7 +139,7 @@ function Login() {
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
               error={formik.touched.password && Boolean(formik.errors.password)}
-              helperText={formik.touched.password && String(formik.errors.password)}
+              helperText={formik.touched.password && String(formik.touched.password) !== "undefined" && String(formik.errors.password)}
             />
             <LoadingButton loading={isLoading} type="submit" className='bg-[#08A1D7] hover:bg-[#08A1D7] text-[#fff] h-[56px]' variant="contained">Login</LoadingButton>
             <LoadingButton className="border text-[#636161] border-[#A4A4A4] h-[56px] mt-2" variant="outlined">Recover Account</LoadingButton>
