@@ -30,7 +30,7 @@ function Header() {
         <Box className="p-2  flex md:justify-center justify-between items-center gap-3">
         <Hidden mdUp>
         <IconButton onClick={toggleDrawer(true)}>
-          <MenuIcon className="md:hidden text-dark hamburger-menu"/>
+          <MenuIcon className="text-dark hamburger-menu"/>
         </IconButton>
       </Hidden>
         
