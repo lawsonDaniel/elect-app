@@ -72,7 +72,7 @@ const Page  = ()=> {
         <img className="h-[70vh] md:h-[100vh] w-full object-cover" src="img3.jpeg" alt="Image 1" />
         </Box>
         </Carousel>
-        <Box className="w-full h-[70vh] md:h-[100vh] bg-black">
+        <Box className="w-full h-full bg-black">
            <Box className="flex flex-col-reverse md:flex-row lg:flex-row items-center justify-center md:p-20 p-6">
            <Box className="flex flex-col gap-5 ">
           <Box>
