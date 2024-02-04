@@ -52,7 +52,7 @@ function Message() {
         setErrorMessage(res?.data?.message)
         setTimeout(()=>{
           setErrorMessage('')
-        },3000)
+        },1000)
       }else{
         formik.values.message = ''
         formik.values.recipient = ''
@@ -60,11 +60,12 @@ function Message() {
         setSuccessMessage(res?.data?.message)
         setTimeout(()=>{
           setSuccessMessage('')
-        },3000)
+        },1000)
       }
       setIsLoading(false)
       console.log(res)
-    } catch (err) {
+    } catch (err:any) {
+      setErrorMessage(err?.message)
       setIsLoading(false)
       console.error(err)
     }
