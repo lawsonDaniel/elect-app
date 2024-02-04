@@ -4,7 +4,7 @@ import React from 'react'
 import { 
     Box,
      Typography,Button,Drawer,
-     Divider,List,ListItem
+     Divider,List,ListItem,IconButton,Hidden
  } from '@mui/material'
  import MenuIcon from '@mui/icons-material/Menu';
  import CloseIcon from '@mui/icons-material/Close';
@@ -28,7 +28,12 @@ function Header() {
     <Box className="w-screen flex items-center justify-between  p-2 absolute top-0  z-20">
         <img className="w-[184px]  md:block h-[33px] object-contain " src="/logo.png" alt="logo" />
         <Box className="p-2  flex md:justify-center justify-between items-center gap-3">
-         <MenuIcon onClick={toggleDrawer(true)} className="md:hidden text-dark hamburger-menu"/>
+        <Hidden mdUp>
+        <IconButton onClick={toggleDrawer(true)}>
+          <MenuIcon className="md:hidden text-dark hamburger-menu"/>
+        </IconButton>
+      </Hidden>
+        
         <Box className="md:flex hidden  gap-5 text-thin justify-center items-center mt-1  text-[#a9953c] h-[45px]">
          <a  className="" href="/">Home</a>
          <a href="/about">About</a>
