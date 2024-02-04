@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 /* eslint-disable react/no-unescaped-entities */
 import React, { useCallback, useState } from 'react';
 import { Modal, Box, Typography, Button, TextField, FormControl, InputLabel } from '@mui/material';
