@@ -101,7 +101,7 @@ function Main({ activeUser, userInfo,setOpen,setUserInfo }: MainProps) {
 
   return (
     <Box>
-      <Box className="w-full h-[80px] flex p-3 items-center justify-between border-b">
+      <Box className="w-full h-[80px] flex p-3 items-center overflow-hidden justify-between border-b">
         <Box className="flex items-center">
           
             <IconButton
@@ -195,7 +195,7 @@ function Main({ activeUser, userInfo,setOpen,setUserInfo }: MainProps) {
           style={{
             height: 'calc(100vh - 138px)',
           }}
-          className="chat w-full bg-[#f0f2f5] p-2 md:p-[100px] flex flex-col gap-4 overflow-y-auto overflow-x-none"
+          className="chat w-full bg-[#f0f2f5] p-2 md:p-[100px] flex flex-col gap-4 overflow-y-auto overflow-x-hidden"
         >
           {sortedMessages &&
             sortedMessages.map((a: any, i) => (

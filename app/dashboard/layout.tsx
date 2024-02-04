@@ -17,11 +17,11 @@ export default function RootLayout({
    
   }
     return (
-        <Box className="w-screen bg-[#F6F6F6] md:p-[44px] sm:p-0  min-h-screen     h-full overflow-y-hidden ">
+        <Box className="w-screen bg-[#F6F6F6] md:p-[44px] sm:p-0  min-h-screen h-screen overflow-y-hidden ">
             <Header users={user}/>
             <Box className="flex w-full md:flex-row flex-col-reverse overflow-y-auto">
             <SideBar />
-            <Box className="h-[79vh] p-3 w-full md:w-full md:min-h-screen md:h-full mb-11 overflow-y-auto">
+            <Box className="h-[100vh] p-3 w-full md:w-full md:min-h-screen md:h-full overflow-y-hidden">
             {children}
             </Box>
            

@@ -52,7 +52,7 @@ function Sidebar({ open, isOpen, activeUser,userData, setActiveUser, userInfo,se
         minWidth: "300px",
         transition: 'margin-left 0.3s ease,width 0.3s ease',
       }}
-      className="h-[100vh] w-full border-r text-black items-center overflow-none"
+      className="h-[100vh] w-full border-r text-black items-center overflow-y-auto"
     >
       <Box className="w-full h-min-content border-b p-4 relative bg-[#eee]  ">
         {/* <Typography

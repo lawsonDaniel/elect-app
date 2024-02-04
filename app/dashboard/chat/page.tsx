@@ -43,7 +43,7 @@ function Chat() {
     setOpen(true);
   };
   return (
-    <Box className="w-full">
+    <Box className="w-full overflow-hidden">
         <Sidebar userData={userData} setUserInfo={setUserInfo} handleClickOpen={handleClickOpen}   userInfo={userInfo} isOpen={messageBarOpen} open={setMessageBarOpen} activeUser={activeUser} setActiveUser={setActiveUser}/> 
         <ChatDialog setUserInfo={setUserInfo} setOpen={setOpen} open={open} handleClose={handleClose} activeUser={activeUser} userInfo={userInfo} />
    </Box>
