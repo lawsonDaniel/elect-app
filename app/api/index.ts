@@ -1,7 +1,7 @@
 import axios from "axios";
 import { getAuthUser } from "@/util/auth";
-//https://ui62646llb.execute-api.us-east-1.amazonaws.com/prod
- const baseURL = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3001"
+
+ const baseURL = process.env.NEXT_PUBLIC_BASE_URL || ".env"
  console.log(baseURL,'backend running')
  const authUser:any = getAuthUser()
  
