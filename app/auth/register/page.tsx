@@ -116,7 +116,7 @@ function Register() {
             </Alert>
             }
             <Typography className="text-[#08A1D7] text-[16px] text-center mb-2">
-              Please enter your <br />Login Details.
+              Please enter your <br /> Details.
             </Typography>
             <ToggleButtonGroup
               className="mx-auto flex justify-center align-center"
