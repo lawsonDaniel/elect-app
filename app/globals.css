@@ -13,13 +13,13 @@
     border-radius:20px
 }
 /* Default styles for the hamburger menu */
-.hamburger-menu {
+.hamburger-menu .css-vubbuv{
     display: none; /* Hide the menu by default on larger screens */
   }
   
   /* Media query for screens with a maximum width of 768px (typical for mobile devices) */
   @media only screen and (max-width: 768px) {
-    .hamburger-menu {
+    .hamburger-menu .css-vubbuv{
       display: block; /* Display the menu on smaller screens */
       /* Add additional styles or adjustments as needed for mobile layout */
     }
