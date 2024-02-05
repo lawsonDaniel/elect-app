@@ -4,6 +4,7 @@ import React, { useCallback, useState } from 'react';
 import { Modal, Box, Typography, Button, TextField, FormControl, InputLabel } from '@mui/material';
 import { useDropzone } from 'react-dropzone';
 import { UserClass } from '../api/user.class';
+import CloseIcon from '@mui/icons-material/Close';
 
 function UploadImageModel({ open, handleClose, user }: any) {
   const [formData, setFormData] = useState<any>(null);
@@ -62,6 +63,8 @@ function UploadImageModel({ open, handleClose, user }: any) {
     transform: 'translate(-50%, -50%)',
     width: '80vw',
     bgcolor: 'background.paper',
+    height: '90vh',
+    overflowY: 'auto',
     boxShadow: 24,
     p: 4,
   };
@@ -70,9 +73,13 @@ function UploadImageModel({ open, handleClose, user }: any) {
     <div>
       <Modal open={open} onClose={onCancle} aria-labelledby="modal-modal-title" aria-describedby="modal-modal-description">
         <Box sx={style}>
+          <Box className="flex items-center justify-between">
           <Typography variant="h6" component="h2">
             Profile Settings
           </Typography>
+          <CloseIcon onClick={onCancle}/>
+          </Box>
+          
           <Box className="flex flex-col gap-3 mt-4">
             {user?.profileImg && <img className="mx-auto rounded-[100%] object-cover  w-[98px] h-[98px]" width="98" height="98" src={user && user?.profileImg} alt="user-male-circle" />}
             <InputLabel htmlFor="name">Name</InputLabel>
