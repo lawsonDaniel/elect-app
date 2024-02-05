@@ -12,6 +12,7 @@ import { getAuthUser } from '@/util/auth';
 import { messagesData, dummyData } from '@/util/testData';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import { arrangeUser } from '@/util/arrangeUsers';
+import EmojiPicker from 'emoji-picker-react';
 
 interface MainProps {
   activeUser: any;
@@ -28,6 +29,7 @@ function Main({ activeUser, userInfo,setOpen,setUserInfo }: MainProps) {
   const [chat, setChat] = useState<string>('');
   const [openProfile, setOpenProfile] = useState(false);
   const [openMenu, setOpenMenu] = useState(false);
+  const [showEmoji,setShowEmoji] = useState(false)
 
   const authUser: any = getAuthUser();
   const singleUser = userInfo.find((a: any) => a.id === activeUser);
@@ -40,6 +42,7 @@ function Main({ activeUser, userInfo,setOpen,setUserInfo }: MainProps) {
       });
     }
     socket.on('previous_messages', (data: any) => {
+      localStorage.setItem(`${singleUser.id}+${authUser?.id}+previous_messages`,JSON.stringify(data))
       setMessage(data);
     });
   }, [singleUser]);
@@ -95,10 +98,16 @@ function Main({ activeUser, userInfo,setOpen,setUserInfo }: MainProps) {
       sent: false,
     });
     setChat('');
+    setShowEmoji(false)
   };
 
   const sortedMessages = [...message].sort((a:any, b:any) => Number(new Date(a.createdAt)) - Number(new Date(b.createdAt)));
-
+  
+  const handleEmojiClick = (emojiObject:any) => {
+    console.log(chat + emojiObject.emoji,"emojiObject.emoji")
+    let newMessage = chat + emojiObject.emoji;
+    setChat((e)=> e + emojiObject.emoji)
+  };
   return (
     <Box>
       <Box className="w-full h-[80px] flex p-3 items-center overflow-hidden justify-between border-b">
@@ -204,7 +213,7 @@ function Main({ activeUser, userInfo,setOpen,setUserInfo }: MainProps) {
                 key={i}
                 user={a?.senderId === authUser?.id}
                 message={a?.message}
-                time={a?.createdAt.split('T')[1].split('.')[0]}
+                time={a?.createdAt?.split('T')[1]?.split('.')[0]}
                 delivered={a?.sent}
                 seen={a?.seen}
               />
@@ -213,7 +222,15 @@ function Main({ activeUser, userInfo,setOpen,setUserInfo }: MainProps) {
       )}
       {singleUser && (
         <Box className="w-full h-[60px] border-t  bottom-0 bg-[#eee] p-4 gap-3 flex items-center justify-center">
-          <MoodIcon className="text-[24px]" />
+          <IconButton onClick={()=> setShowEmoji((a)=>!a)}> <MoodIcon  className="text-[24px]" /></IconButton> 
+          {
+            showEmoji &&  <EmojiPicker style={
+              {
+                position:"absolute"
+              }
+            } onEmojiClick={handleEmojiClick} className="mt-[-500px]  absolute w-[90%] md:w-[100%]" />
+          }
+         
           <input
             onKeyDown={(e) => {
               if (e.key === 'Enter') {

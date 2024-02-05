@@ -173,7 +173,7 @@ function Register() {
               helperText={formik.touched.fullName && typeof(formik.touched.fullName) !== "undefined" && String(formik.errors.fullName)}
             />
 
-            <FormControl fullWidth>
+           {userType === "student" && <FormControl fullWidth>
               <InputLabel id="level-label">Level</InputLabel>
               <Select
                 labelId="level-label"
@@ -191,7 +191,7 @@ function Register() {
                 <MenuItem value={'400'}>400</MenuItem>
                 <MenuItem value={'500'}>500</MenuItem>
               </Select>
-            </FormControl>
+            </FormControl>} 
 
             <TextField
               className="w-full"

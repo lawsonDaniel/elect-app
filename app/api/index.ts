@@ -1,6 +1,7 @@
 import axios from "axios";
 import { getAuthUser } from "@/util/auth";
 
+
  const baseURL = process.env.NEXT_PUBLIC_BASE_URL || "https://unijoselectelcet.onrender.com/"
  console.log(baseURL,'backend running')
  const authUser:any = getAuthUser()
