@@ -147,7 +147,7 @@ function Header({users}:any) {
             <Typography className="text-center w-full" >Unread Notification</Typography>
             <CloseIcon onClick={handleClose3}/>
           </Box>
-       <Box className="mt-3 flex flex-col gap-3">
+       <Box className="mt-3 flex flex-col gap-3 max-h-[200px] min-h-full overflow-y-auto">
       {
        notfication.map((a:any,i:number)=>{
         return(
