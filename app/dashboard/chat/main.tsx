@@ -49,12 +49,12 @@ function Main({ activeUser, userInfo,setOpen,setUserInfo }: MainProps) {
     });
   }, [singleUser]);
 
-  console.log(message,'message')
+ 
   useEffect(() => {
     socket.emit('connection')
     socket.on('connection_status', (data: boolean) => {
       setLowNetwork(!data)
-      console.log('connection status: ', data)
+    
     })
     // Listen for the 'connect_error' event to check for errors
     socket.on('connect_error', (error: any) => {

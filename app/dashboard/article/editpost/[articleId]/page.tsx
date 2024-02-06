@@ -23,7 +23,7 @@ function ArticleEdit() {
   const [open, setOpen] = useState(false);
   const pathName = usePathname()
   const articleId = pathName.split("/dashboard/article/editpost/")[1]
-  console.log(pathName.split("/dashboard/article/editpost/")[1],'pathName')
+ 
   
   useEffect(() => {
     const fetchArticle = async () => {
@@ -75,7 +75,7 @@ function ArticleEdit() {
       }
 
       setIsLoading(false);
-      console.log(res, 'successfully');
+     
     } catch (err) {
       setIsLoading(false);
       console.log(err);

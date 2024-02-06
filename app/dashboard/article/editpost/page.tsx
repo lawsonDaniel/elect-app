@@ -14,7 +14,7 @@ function Page() {
         const getArticleByUser = async()=>{
             try {
                 const res:any = await article.getCreatedByUser()
-                console.log(res)
+               
                 if(res?.data?.status){
                     setList(res?.data?.data)
                 }
@@ -24,7 +24,7 @@ function Page() {
         }
         getArticleByUser()
     },[list])
-    console.log(list,"list")
+  
     //get current user
     useLayoutEffect(() => {
     const fetchData = async () => {

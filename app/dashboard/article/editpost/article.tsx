@@ -18,7 +18,7 @@ function Article({ title, approved, id, updatedAt ,user}: FUNCARG) {
         setLoading(true)
         try{
             const res =  await article.delete(articleId)
-            console.log(res,'response')
+           
             setLoading(false)
             handleClose()
         }catch(err:any){
@@ -30,7 +30,7 @@ function Article({ title, approved, id, updatedAt ,user}: FUNCARG) {
         setLoading(true)
         try{
             const res =  await article.approve(articleId)
-            console.log(res,'responsessss')
+           
             setLoading(false)
             handleClose()
         }catch(err:any){

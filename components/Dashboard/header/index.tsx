@@ -32,20 +32,20 @@ function Header({users}:any) {
         console.error('Error fetching user data:', error);
       }
     };
-    console.log('reaching here 1')
+   
    
     fetchData();
   }, []);
-  console.log('reaching here 2')
+ 
   useEffect(()=>{
     Socket.emit("getNotification")
   })
   Socket.on('newNotification',(data)=>{
-    console.log('reaching here 3')
+   
     setNotification(data)
-    console.log(data,'from new notfication')
+    
   })
-  console.log(notfication,"notification")
+  
   const open = Boolean(anchorEl);
   const open2 = Boolean(anchorEl2);
   const open3 = Boolean(anchorEl3);

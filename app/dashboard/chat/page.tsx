@@ -29,7 +29,7 @@ function Chat() {
     Socket.emit('connection')
     Socket.on('connection_status', (data: boolean) => {
       setLowNetwork(!data)
-      console.log('connection status: ', data)
+   
     })
     // Listen for the 'connect_error' event to check for errors
     Socket.on('connect_error', (error: any) => {

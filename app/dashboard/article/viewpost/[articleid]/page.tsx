@@ -11,7 +11,7 @@ import DOMPurify from 'dompurify';
 function Page() {
     const pathName = usePathname()
     const articleId = pathName.split("/dashboard/article/viewpost/")[1]
-    console.log(pathName.split("/dashboard/article/viewpost/")[1],'pathName')
+  
    const [list,setList] = useState([])
     
     const [html,setHtml]:any = useState(null)
@@ -19,11 +19,11 @@ function Page() {
         const getArticleByUser = async()=>{
             try {
                 const res:any = await article.getOne(articleId)
-                console.log(res)
+               
                 if(res?.data?.status){
                     let raw:any = draftToHtml(JSON.parse(res?.data?.data?.article))
                     const sanitizedHtml = DOMPurify.sanitize(raw);
-                    console.log(sanitizedHtml,'raw')
+                  
                     setHtml(sanitizedHtml)
                     setList(res?.data?.data)
                 }

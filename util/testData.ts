@@ -60,5 +60,5 @@ const currentTime = getCurrentTime();
     // Adding more dummy data as needed
   ];
   
-  console.log(dummyData);
+ 
   

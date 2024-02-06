@@ -16,10 +16,9 @@ function SideBar() {
     const router = useRouter()
     let pathName:string = usePathname()
    
-    console.log(pathName)
   return (
   
-    <Box className="lg:w-[190px] z-50  md:w-[70px] absolute md:static bottom-0 cursor-pointer w-full md:justify-normal md:gap-[28px] justify-center py-[27px] px-[5px] items-center  bg-white md:rounded-[16px] md:h-[700px] h-[50px] md:my-[16px] flex md:flex-col">
+    <Box className="lg:w-[190px] z-50 sm:fixed sm:bottom-0  md:w-[70px]  md:static bottom-0 cursor-pointer w-full md:justify-normal md:gap-[28px] justify-center py-[27px] px-[5px] items-center  bg-white md:rounded-[16px] md:h-[700px] h-[50px] md:my-[16px] flex md:flex-col">
         <Box title="home"
         className="flex hover:md:bg-[#cfcfcf3d] lg:p-[20px] rounded-[10px]  flex-col md:flex-row items-center justify-center gap-1 lg:justify-start w-full lg:gap-[12px] h-[26px]" onClick={() => router.push('/dashboard')}>
             {

@@ -10,7 +10,7 @@ function Page() {
         const getArticleByUser = async()=>{
             try {
                 const res:any = await article.getCreatedByUser()
-                console.log(res)
+              
                 if(res?.data?.status){
                     setList(res?.data?.data)
                 }
@@ -20,7 +20,7 @@ function Page() {
         }
         getArticleByUser()
     },[])
-    console.log(list,'listttt from veiw')
+   
     return (
         <Box className="p-4 mb-4 bg-gray-200">
             <Link href="/dashboard/article">Back</Link>

@@ -48,7 +48,7 @@ function UploadImageModel({ open, handleClose, user }: any) {
         alert(res?.data?.message); // Use Material UI alert or snackbar
         setIsLoading(false);
       }
-      console.log(res, 'from the front end ');
+     
     } catch (err) {
       console.log(err);
     }

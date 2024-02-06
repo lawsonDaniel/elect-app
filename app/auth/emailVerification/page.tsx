@@ -50,7 +50,7 @@ console.log(email,'this is the email2')
           //make call check if user has verified
         }
         setIsLoading(false)
-        console.log(res)
+       
       } catch (err) {
         setIsLoading(false)
         console.error(err)

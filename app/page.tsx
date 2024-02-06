@@ -18,7 +18,7 @@ const Page  = ()=> {
         try{
           const res = await article.getAll()
           setArticle(res?.data?.data)
-          console.log(res?.data?.data,'response')
+          
         }catch(err){
           console.log(err)
         }

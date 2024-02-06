@@ -32,7 +32,7 @@ function Article() {
       setLocalV(false)
     }
     
-    console.log(raw,'raw')
+   
   },[editorState])
   //post article
   const postArticle = async()=>{

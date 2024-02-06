@@ -73,7 +73,7 @@ function Register() {
         const { level, ...newValues } = values;
         values = newValues
       }
-      console.log(values,'values for staff')
+     
       values = {
         ...values,
         userType

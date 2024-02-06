@@ -50,7 +50,7 @@ function Login() {
         if (!res?.data?.status) {
           setErrorMessage(res?.data?.message)
         }else{
-          console.log(res?.data?.data?.verified,'data verified')
+        
             if(res?.data?.data?.verified){
               setAuthUser(res?.data?.data)
               window.location.href = "/dashboard";

@@ -19,7 +19,7 @@ function Overview({user}:any) {
         const getArticleByUser = async()=>{
             try {
                 const res:any = await article.getCreatedByUser()
-                console.log(res,'from overview')
+               
                 if(res?.data?.status){
                     setList(res?.data?.data)
                 }
@@ -30,11 +30,11 @@ function Overview({user}:any) {
         getArticleByUser()
     },[])
     const approvedCount = list.reduce((count:any, obj:any) => obj.approved === true ? count + 1 : count, 0);
-    console.log(notification,'new value for the over view....list')
+   
   const getMessage = async()=>{
     try{
       const res = await MessageClass.getStaffMessage()
-      console.log(res,'Response')
+    
       setNotification(res?.data?.data)
     }catch(err){
       console.log(err);
@@ -44,12 +44,12 @@ function Overview({user}:any) {
   useEffect(()=>{
     getMessage()
   },[])
-  console.log(notification,'notification')
+ 
   return (
     <Box className="" >
-        <Box className="w-full h-[100vh] overflow-scroll bg-[#fff] rounded-lg">
+        <Box className="w-full h-full overflow-auto bg-[#fff] rounded-lg">
           <Box className=" w-full h-full overflow-y-auto flex flex-col p-5 gap-5">
-              <Box className="w-full  flex md:flex-row  flex-col gap-3">
+              <Box className="w-full  overflow-y-auto flex md:flex-row  flex-col gap-3">
               <Box className="w-full text-center h-[150px] bg-[#9264ff] text-white rounded-lg flex flex-col justify-center items-center">
                 <Typography className="text-[12px] font-thin">Broadcast</Typography>
                 <Typography style={{

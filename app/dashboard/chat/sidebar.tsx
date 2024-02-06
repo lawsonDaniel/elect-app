@@ -82,7 +82,7 @@ function Sidebar({ open, isOpen, activeUser,userData, setActiveUser, userInfo,se
       </Box>
       <Box
         style={{
-          height: "calc(100vh - 120px)",
+          height: "100%",
         }}
         className="flex flex-col overflow-auto"
       >
@@ -112,7 +112,7 @@ function Sidebar({ open, isOpen, activeUser,userData, setActiveUser, userInfo,se
             sideBarOpen={activeUser === index && true}
             onClick={() => {
               handleClickOpen()
-              console.log( `clicked`)
+             
               socket.emit('openChat',{
                 recevier:userRecevier?.id,
                 sender:user.id
