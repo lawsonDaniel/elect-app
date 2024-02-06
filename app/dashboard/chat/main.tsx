@@ -44,8 +44,8 @@ function Main({ activeUser, userInfo,setOpen,setUserInfo }: MainProps) {
       });
     }
     socket.on('previous_messages', (data: any) => {
-      localStorage.setItem(`${singleUser.id}+${authUser?.id}+previous_messages`,JSON.stringify(data))
-      setMessage(data);
+      let newData =  Array.from(new Set(data))
+      setMessage(newData);
     });
   }, [singleUser]);
 
@@ -69,7 +69,8 @@ function Main({ activeUser, userInfo,setOpen,setUserInfo }: MainProps) {
     socket.on('privateMessage', (data: any) => {
       let ArrangedUser = arrangeUser(data.senderId,userInfo)
       setUserInfo(ArrangedUser)
-      setMessage((prevMessages) => [...message, data]);
+        let newData =  Array.from(new Set([...message,data]))
+      setMessage((prevMessages) =>  newData);
     });
   },[message])
 

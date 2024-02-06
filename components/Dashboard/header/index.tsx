@@ -39,7 +39,7 @@ function Header({users}:any) {
   console.log('reaching here 2')
   useEffect(()=>{
     Socket.emit("getNotification")
-  },[])
+  })
   Socket.on('newNotification',(data)=>{
     console.log('reaching here 3')
     setNotification(data)
