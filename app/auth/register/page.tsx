@@ -39,7 +39,12 @@ function Register() {
     .matches(/^[a-zA-Z0-9._%+-]+@unijos\.edu\.ng$/, 'Invalid email format. Must be in the format value@unijos.edu.ng')
     .required('Email is required'),
     fullName: Yup.string().required('Full Name is required'),
-    level: Yup.string().required('Level is required'),
+    level: Yup.string().when([], (values, schema) => {
+      if (userType === 'student') {
+        return schema.required('Level is required for students');
+      }
+      return schema;
+    }),
     phoneNumber:Yup.string().required('Phone number is required'),
     password: Yup.string().required('Password is required'),
     confirmPassword: Yup.string()
@@ -64,6 +69,11 @@ function Register() {
     setErrorMessage('')
     setSuccessMessage('')
     try {
+      if(userType === "staff"){
+        const { level, ...newValues } = values;
+        values = newValues
+      }
+      console.log(values,'values for staff')
       values = {
         ...values,
         userType

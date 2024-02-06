@@ -21,10 +21,10 @@ export const Socket = manager.socket("/", {
 });
 
 // Open the socket connection
-manager.open((err) => {
+manager.open((err:any) => {
   if (err) {
     // An error occurred during the connection attempt
-    console.error("Error opening socket connection:", err);
+    console.error("Error opening socket connection:", err?.message);
   } else {
     // The connection was successfully established
     console.log("Socket connection established successfully");

@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import React, { useState, useRef, useEffect, ChangeEvent, useLayoutEffect } from 'react';
-import { Box, Typography, Menu, MenuItem, Button,IconButton } from '@mui/material';
+import { Box, CircularProgress, Backdrop,Typography, Menu, MenuItem, Button,IconButton } from '@mui/material';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import SearchIcon from '@mui/icons-material/Search';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
@@ -30,6 +30,8 @@ function Main({ activeUser, userInfo,setOpen,setUserInfo }: MainProps) {
   const [openProfile, setOpenProfile] = useState(false);
   const [openMenu, setOpenMenu] = useState(false);
   const [showEmoji,setShowEmoji] = useState(false)
+  const [lowNetwork, setLowNetwork] = React.useState(true);
+
 
   const authUser: any = getAuthUser();
   const singleUser = userInfo.find((a: any) => a.id === activeUser);
@@ -48,7 +50,21 @@ function Main({ activeUser, userInfo,setOpen,setUserInfo }: MainProps) {
   }, [singleUser]);
 
   console.log(message,'message')
+  useEffect(() => {
+    socket.emit('connection')
+    socket.on('connection_status', (data: boolean) => {
+      setLowNetwork(!data)
+      console.log('connection status: ', data)
+    })
+    // Listen for the 'connect_error' event to check for errors
+    socket.on('connect_error', (error: any) => {
+      if (error) {
+        setLowNetwork(true)
+      }
 
+      console.error('Socket connection error:', error);
+    });
+  })
   useLayoutEffect(()=>{
     socket.on('privateMessage', (data: any) => {
       let ArrangedUser = arrangeUser(data.senderId,userInfo)
@@ -110,6 +126,12 @@ function Main({ activeUser, userInfo,setOpen,setUserInfo }: MainProps) {
   };
   return (
     <Box>
+      <Backdrop
+        sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
+        open={lowNetwork}
+      >
+        <CircularProgress color="inherit" />
+      </Backdrop>
       <Box className="w-full h-[80px] flex p-3 items-center overflow-hidden justify-between border-b">
         <Box className="flex items-center">
           
