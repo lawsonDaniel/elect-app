@@ -49,20 +49,22 @@ function Overview({user}:any) {
     <Box className="" >
         <Box className="w-full h-full overflow-auto bg-[#fff] rounded-lg">
           <Box className=" w-full h-full overflow-y-auto flex flex-col p-5 gap-5">
-              <Box className="w-full  overflow-y-auto flex md:flex-row  flex-col gap-3">
-              <Box className="w-full text-center h-[150px] bg-[#9264ff] text-white rounded-lg flex flex-col justify-center items-center">
+              <Box style={{
+                    height: 'calc(100vh - 145px)'
+              }} className="w-full  overflow-y-auto flex md:flex-row  flex-col gap-3">
+              <Box className="w-full text-center md:h-[150px] h-[100px]  bg-[#9264ff] text-white rounded-lg flex flex-col justify-center items-center">
                 <Typography className="text-[12px] font-thin">Broadcast</Typography>
                 <Typography style={{
                     fontFamily: "'Libre Baskerville', 'serif'"
                   }} className="text-[54px]"> {notification?.length || 0}</Typography>
               </Box>
-              <Box className="w-full text-center h-[150px] bg-[#4e35e1] text-white rounded-lg flex flex-col justify-center items-center">
+              <Box className="w-full text-center md:h-[150px] h-[100px] bg-[#4e35e1] text-white rounded-lg flex flex-col justify-center items-center">
                 <Typography title={"number of article"} className="text-[12px] font-thin"> published Articles</Typography>
                 <Typography style={{
                     fontFamily: "'Libre Baskerville', 'serif'"
                   }} className="text-[54px]"> {list?.length || 0}</Typography>
               </Box>
-              <Box className="w-full text-center h-[150px] bg-[#3571e1] text-white rounded-lg flex flex-col justify-center items-center">
+              <Box className="w-full text-center md:h-[150px] h-[100px] bg-[#3571e1] text-white rounded-lg flex flex-col justify-center items-center">
                 <Typography title={"number of published article"} className="text-[12px] font-thin"> live Articles</Typography>
                 <Typography style={{
                     fontFamily: "'Libre Baskerville', 'serif'"

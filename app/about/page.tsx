@@ -46,6 +46,8 @@ function page() {
               " level="400"/>
               <Card img="exco5.jpeg" name="Isabel Fatima Ziri" position="Vice President
               " level="400"/>
+               <Card img="exco9.jpeg" name="Nwafor Rejoice Chinaza" position="Director of socials 
+              " level="400"/>
               <Card img="exco6.png" name="Lagan Lucky Ibrahim" position="Director of sports
               " level="300"/>
                <Card img="exco7.jpeg" name="John Ayuba Pam" position="Assistant Sec Gen
