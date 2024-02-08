@@ -39,7 +39,11 @@ function Page() {
     fetchData();
   }, []);
   return (
-   <Box className="p-4 mb-4 bg-gray-200">
+   <Box style={{
+    overflow: 'auto',
+    height: '2000px',
+    border: '1px solid'
+}}  className="p-4 mb-4 bg-gray-200">
      <Link href="/dashboard/article">Back</Link>
       <Box>
       <Box className="flex items-center p-2 justify-evenly">

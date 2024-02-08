@@ -86,7 +86,11 @@ const handleClose = () => {
   return (
     <Box className="p-4 bg-gray-200">
         <Link href="/dashboard/article">Back</Link>
-       <Box className="max-w-3xl mx-auto bg-white rounded-lg p-6">
+       <Box style={{
+            overflow: 'auto',
+            height: '2000px',
+            border: '1px solid'
+       }} className="max-w-3xl mx-auto bg-white rounded-lg p-6">
         <Typography
           variant="h4"
           style={{
