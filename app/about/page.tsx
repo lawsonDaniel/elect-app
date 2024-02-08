@@ -2,7 +2,7 @@
 "use client"
 import React, { Component } from 'react';
 import Header from '@/components/Header';
-import { Box, Typography } from '@mui/material';
+import { Box, Typography,Table,TableBody,TableCell,TableContainer,TableHead,TableRow,Paper } from '@mui/material';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from 'react-responsive-carousel';
 import Card from './card';
@@ -11,6 +11,24 @@ import Footer from '@/components/Footer';
 //     font-size: 50px;
 //     font-weight: 100;
 function page() {
+  function createData(
+    name: string,
+    calories: string,
+    fat: string,
+    carbs: number,
+    protein: string,
+  ) {
+    return { name, calories, fat, carbs, protein };
+  }
+  
+  const rows = [
+    
+    createData('1', '70-100', 'A', 5, '4.5-5.00 First Class'),
+    createData('2', '60-69', 'B', 4, '3.5-4.49 Second Class Upper'),
+    createData('3', '50-59', 'C', 3, '2.40-3.49 Second Class Lower'),
+    createData('4', '40-49', 'D', 2, '1.5-2.39 Third Class'),
+    createData('5', '0-39', 'F', 0, '<1 Fail')
+  ];
   return (
     <Box>
     <Header/>
@@ -55,6 +73,64 @@ function page() {
                <Card img="exco8.jpeg" name="Emmanuel James " position="PRO
               " level="200"/>
            </Box>
+        </Box>
+        <Box className="p-4  bg-[#000000]">
+           <Typography style={{
+            fontFamily: "'Libre Baskerville', 'serif'"
+           }}  className="text-[#888787] text-[24px] font-medium	 my-1">OUR  <span className="text-[#08A1D7]">Lecturers </span></Typography>
+           <Box className="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-col-1 p-2   gap-8 gap-y-8 my-4 justify-evenly  items-center flex-wrap">
+              <Card img={`https://api.dicebear.com/7.x/initials/svg?seed=Olurotimi Awodiji/svg?randomizeIds=false`} name="Olurotimi Awodiji" position=" awodijio@unijos.edu.ng" level="Senior Lecturer"/>
+              <Card img={`https://api.dicebear.com/7.x/initials/svg?seed=Ahmen Tijani Salawudeen/svg?randomizeIds=false`} name="Ahmen Tijani Salawudeen" position="atsalawudeen@unijos.edu" level="Senior Lecturer"/>
+              <Card img={`https://api.dicebear.com/7.x/initials/svg?seed=David Etor/svg?randomizeIds=false`}  name="David Etor (Senior Lecturer)" position="etord@unijos.edu.ng" level="Senior Lecturer"/>
+              <Card img={`https://api.dicebear.com/7.x/initials/svg?seed=Izuagbe Momoh/svg?randomizeIds=false`}  name="Izuagbe Momoh " position="momohi@unijos.edu.ng 
+              " level="Lecturer"/>
+              <Card img={`https://api.dicebear.com/7.x/initials/svg?seed=Isaiah A. Akintunde/svg?randomizeIds=false`}  name="Isaiah A. Akintunde" position="akintundei@unijos.edu.ng
+              " level="Lecturer"/>
+               <Card img={`https://api.dicebear.com/7.x/initials/svg?seed=Kishak Zakka Cinfwat/svg?randomizeIds=false`}  name="Kishak Zakka Cinfwat " position="cinfwatk@unijos.edu.ng 
+              " level="Lecturer II"/>
+              <Card img={`https://api.dicebear.com/7.x/initials/svg?seed=Ganiu Ayinde Bakare/svg?randomizeIds=false`} name="Ganiu Ayinde Bakare" position="bakareg@unijos.edu.ng
+              " level="Visting Lecturer"/>
+               <Card img={`https://api.dicebear.com/7.x/initials/svg?seed=Gwangtim Timothy Poyi/svg?randomizeIds=false`}  name="Gwangtim Timothy Poyi " position=" poyig@unijos.edu.ng
+              " level="Visting Lecturer"/>
+               <Card img={`https://api.dicebear.com/7.x/initials/svg?seed=Aliyu Gadam/svg?randomizeIds=false`}  name="Aliyu Gadam " position="gadama@unijos.edu.ng
+              " level="Lecturer"/>
+           </Box>
+        </Box>
+        <Box className="p-4 flex flex-col gap-4 bg-[#fff]">
+        <Typography style={{
+            fontFamily: "'Libre Baskerville', 'serif'"
+           }}  className="text-center tracking-[3px] w-[100%] text-[30px]  lg:text-[45px] md:text-[35px] font-lighter text-black">
+           Approved Scoring and Grading System
+            </Typography>
+        <TableContainer component={Paper}>
+      <Table sx={{ minWidth: 650 }} aria-label="simple table">
+        <TableHead>
+          <TableRow>
+            <TableCell>S/N</TableCell>
+            <TableCell align="right">%</TableCell>
+            <TableCell align="right">LETTER GRADE</TableCell>
+            <TableCell align="right">GRADE POINT</TableCell>
+            <TableCell align="right">CGPA & CLASS OF DEGREE</TableCell>
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          {rows.map((row) => (
+            <TableRow
+              key={row.name}
+              sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+            >
+              <TableCell component="th" scope="row">
+                {row.name}
+              </TableCell>
+              <TableCell align="right">{row.calories}</TableCell>
+              <TableCell align="right">{row.fat}</TableCell>
+              <TableCell align="right">{row.carbs}</TableCell>
+              <TableCell align="right">{row.protein}</TableCell>
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
+    </TableContainer>
         </Box>
     <Footer/>
   </Box>

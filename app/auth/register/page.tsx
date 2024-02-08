@@ -22,7 +22,7 @@ import { Authclass } from '@/app/api/auth.class';
 import LoadingButton from '@mui/lab/LoadingButton';
 
 function Register() {
-  const [userType, setUserType] = useState('staff');
+  const [userType, setUserType] = useState('student');
   const [isLoading, setIsLoading] = useState(false)
   const [errorMessage, setErrorMessage] = useState('')
   const [successMessage, setSuccessMessage] = useState('')
