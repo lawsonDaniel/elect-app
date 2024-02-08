@@ -10,6 +10,7 @@ import Card from '@/components/Card';
 import Footer from '@/components/Footer';
 import FormatQuoteIcon from '@mui/icons-material/FormatQuote';
 import article from './api/article.class';
+import Article from './dashboard/article/viewpost/article';
 
 const Page  = ()=> {
   const [allArticle,setArticle] = useState([])
@@ -24,7 +25,7 @@ const Page  = ()=> {
         }
       }
     fetchData()
-    })
+    },[])
     return (
       <Box>
         <Header/>
@@ -98,22 +99,22 @@ const Page  = ()=> {
            <Typography style={{
             fontFamily: "'Libre Baskerville', 'serif'",
             fontSize:'30px'
-           }} className="text-[#000] text-[34px] font-medium	 my-1 text-center">STUDENTS’ <span className="text-[#08A1D7]">PORTAL</span></Typography>
+           }} className="text-[#000] text-[34px] font-medium	 my-1 text-center">UPCOMING <span className="text-[#08A1D7]">EVENT</span></Typography>
            
            <Box className="flex flex-wrap gap-3 my-4 justify-evenly items-center">
             {
               allArticle.map((a:any,i:number)=>{
                 return (
                   <React.Fragment key={i}>
-                    <Card/>
+                  <Article title={a.title} id={a.id} color={`#${i > 9 ? String(i).split("")[1] : i}21fe8`} approved={a.approved}/>
                   </React.Fragment>
                 )
               })
             }
            </Box>
-           <Box className="w-full flex justify-center">
+           {/* <Box className="w-full flex justify-center">
            <Button className="bg-[#08A1D7] hover:bg-[#08A1D7] text-[#fff] h-[56px] w-[200px]" variant="contained">View More</Button>
-           </Box>
+           </Box> */}
         </Box>
        
         <Footer/>

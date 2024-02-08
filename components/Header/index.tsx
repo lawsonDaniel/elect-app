@@ -26,7 +26,9 @@ function Header() {
   };
   return (
     <Box className="w-screen flex items-center justify-between  p-2 absolute top-0  z-20">
-        <img className="w-[184px]  md:block h-[33px] object-contain " src="/logo.png" alt="logo" />
+        <img onClick={()=>{
+        window.location.href = `/`
+    }} className="w-[184px]  md:block h-[33px] object-contain " src="/logo.png" alt="logo" />
         <Box className="p-2  flex md:justify-center justify-between items-center gap-3">
         <Hidden mdUp>
         <IconButton onClick={toggleDrawer(true)}>

@@ -69,7 +69,7 @@ function Article({ title, approved, id, updatedAt ,user}: FUNCARG) {
                     </DialogContentText>
                 </DialogContent>
                 <DialogActions>
-                    <Button onClick={handleClose} className="bg-[#2c71c5ba] hover:bg-[#2c71c5ba]  text-white">Cancle</Button>
+                    <Button onClick={handleClose} className="bg-[#2c71c5ba] hover:bg-[#2c71c5ba]  text-white">cancel </Button>
                     <LoadingButton loading={loading} onClick={()=>{
                         deleteArticle(id)
                     }} className="bg-[#c52c2cf1] hover:bg-[#c52c2cf1] text-white" autoFocus>

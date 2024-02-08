@@ -119,7 +119,7 @@ const handleClose = () => {
           </DialogContentText>
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose} className="bg-[#c52c2cba] hover:bg-[#c52c2cba]  text-white">Cancle</Button>
+          <Button onClick={handleClose} className="bg-[#c52c2cba] hover:bg-[#c52c2cba]  text-white">cancel </Button>
           <LoadingButton loading={isLoading} onClick={postArticle} className="bg-[#2cc588f1] hover:bg-[#2cc588f1] text-white" autoFocus>
           Continue
           </LoadingButton>

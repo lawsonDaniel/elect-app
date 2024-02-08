@@ -30,7 +30,7 @@ function UploadImageModel({ open, handleClose, user }: any) {
     setFormData(formParam);
   }, []);
 
-  const onCancle = () => {
+  const oncancel  = () => {
     setImg('');
     setFormData(null);
     handleClose();
@@ -71,13 +71,13 @@ function UploadImageModel({ open, handleClose, user }: any) {
 
   return (
     <div>
-      <Modal open={open} onClose={onCancle} aria-labelledby="modal-modal-title" aria-describedby="modal-modal-description">
+      <Modal open={open} onClose={oncancel } aria-labelledby="modal-modal-title" aria-describedby="modal-modal-description">
         <Box sx={style}>
           <Box className="flex items-center justify-between">
           <Typography variant="h6" component="h2">
             Profile Settings
           </Typography>
-          <CloseIcon onClick={onCancle}/>
+          <CloseIcon onClick={oncancel }/>
           </Box>
           
           <Box className="flex flex-col gap-3 mt-4">
