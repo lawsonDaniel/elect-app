@@ -10,7 +10,7 @@ import DOMPurify from 'dompurify';
 
 function Page() {
     const pathName = usePathname()
-    const articleId = pathName.split("/dashboard/article/viewpost/")[1]
+    const articleId = pathName.split("/viewpost/")[1]
   
    const [list,setList] = useState([])
     
@@ -27,7 +27,8 @@ function Page() {
                     setHtml(sanitizedHtml)
                     setList(res?.data?.data)
                 }
-            } catch (error) {
+            } catch (error:any) {
+                setHtml(<h1>{error?.data?.message || "Article Doent exist"}</h1>)
                 console.log(error)
             }
         }
@@ -36,7 +37,7 @@ function Page() {
     console.log(list,'listtt')
   return (
     <Box className="p-4 bg-gray-200">
-    <Link href="/dashboard/article/viewpost">Back</Link>
+    <Link href="/#article">Back</Link>
     <Box className="bg-white w-full h-screen overflow-y-auto mt-4">
     <div className="p-6" dangerouslySetInnerHTML={{ __html: html }} />
     </Box>

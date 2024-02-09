@@ -101,7 +101,7 @@ const Page  = ()=> {
             fontSize:'30px'
            }} className="text-[#000] text-[34px] font-medium	 my-1 text-center">UPCOMING <span className="text-[#08A1D7]">EVENT</span></Typography>
            
-           <Box className="flex flex-wrap gap-3 my-4 justify-evenly items-center">
+           <Box id="article" className="flex flex-wrap gap-3 my-4 justify-evenly items-center">
             {
               allArticle.map((a:any,i:number)=>{
                 return (
