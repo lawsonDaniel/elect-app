@@ -11,6 +11,7 @@ import Footer from '@/components/Footer';
 import FormatQuoteIcon from '@mui/icons-material/FormatQuote';
 import article from './api/article.class';
 import Article from './dashboard/article/viewpost/article';
+import EventCard from './eventCard';
 
 const Page  = ()=> {
   const [allArticle,setArticle] = useState([])
@@ -99,7 +100,7 @@ const Page  = ()=> {
            <Typography style={{
             fontFamily: "'Libre Baskerville', 'serif'",
             fontSize:'30px'
-           }} className="text-[#000] text-[34px] font-medium	 my-1 text-center">UPCOMING <span className="text-[#08A1D7]">EVENT</span></Typography>
+           }} className="text-[#000] text-[34px] font-medium	 my-1 text-center">RECENT <span className="text-[#08A1D7]">POST</span></Typography>
            
            <Box id="article" className="flex flex-wrap gap-3 my-4 justify-evenly items-center">
             {
@@ -111,6 +112,22 @@ const Page  = ()=> {
                 )
               })
             }
+           </Box>
+           {/* <Box className="w-full flex justify-center">
+           <Button className="bg-[#08A1D7] hover:bg-[#08A1D7] text-[#fff] h-[56px] w-[200px]" variant="contained">View More</Button>
+           </Box> */}
+        </Box>
+        <Box className="p-4 flex flex-col bg-[#f0f0f0de]">
+           <Typography style={{
+            fontFamily: "'Libre Baskerville', 'serif'",
+            fontSize:'30px'
+           }} className="text-[#000] text-[34px] font-medium	 my-1 text-center">UPCOMING <span className="text-[#08A1D7]">EVENT</span></Typography>
+           
+           <Box className="flex flex-wrap gap-3 my-4 justify-evenly items-center">
+            <EventCard name="Orientation for New Students" location="Coming soon" date="Upcoming" color="#922ad7a7"/>
+            <EventCard name="Excursion" location="Coming soon" date="Upcoming" color="#2200ffa7"/>
+            <EventCard name="Sport week" location="Coming soon" date="Upcoming" color="#c70f2da7"/>
+            <EventCard name="Dinner/Award Night" location="Coming soon" date="Upcoming" color="#ff0000a7"/>
            </Box>
            {/* <Box className="w-full flex justify-center">
            <Button className="bg-[#08A1D7] hover:bg-[#08A1D7] text-[#fff] h-[56px] w-[200px]" variant="contained">View More</Button>
