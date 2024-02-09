@@ -10,7 +10,7 @@ level:string
 }
 function Card({img,name,position,level}:FUNARG) {
   return (
-    <Box className="w-full hover:scale-95 h-[350px] rounded-[40px]">
+    <Box className="w-full min-w-[250px] hover:scale-95 h-[350px] rounded-[40px]">
         <img style={{
              filter: name === "Ibi Lawson Tsapka" ? 'grayscale(100%)' : 'grayscale(10%)'
         }} src={img} alt="exocpho" className=' rounded-[40px] w-full h-[350px] object-cover ' />

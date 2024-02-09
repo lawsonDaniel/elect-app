@@ -39,7 +39,7 @@ function Header() {
         <Box className="md:flex hidden  gap-5 text-thin justify-center items-center mt-1  text-[#a9953c] h-[45px]">
          <a  className="" href="/">Home</a>
          <a href="/about">About</a>
-        <a href="#">Contact</a>
+        <a href="/contact">Contact</a>
         {/* <a href="#">Social</a> */}
         <a href="/auth/login">Login</a>
     </Box>
@@ -63,7 +63,7 @@ function Header() {
               <a  className="font-bold" href="/about">About</a>
               </ListItem>
               <ListItem className="mb-2">
-              <a  className="font-bold" href="#">Contact</a>
+              <a  className="font-bold" href="/contact">Contact</a>
               </ListItem>
               <ListItem className="mb-2">
               {/* <a  className="font-bold" href="#">Social</a> */}

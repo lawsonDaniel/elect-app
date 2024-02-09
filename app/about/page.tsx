@@ -79,6 +79,8 @@ function page() {
             fontFamily: "'Libre Baskerville', 'serif'"
            }}  className="text-[#888787] text-[24px] font-medium	 my-1">OUR  <span className="text-[#08A1D7]">Lecturers </span></Typography>
            <Box className="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-col-1 p-2   gap-8 gap-y-8 my-4 justify-evenly  items-center flex-wrap">
+           <Card img={`https://api.dicebear.com/7.x/initials/svg?seed=Sunday Iliya/svg?randomizeIds=false`}  name="Sunday Iliya" position="
+              " level=" HOD "/>
               <Card img={`https://api.dicebear.com/7.x/initials/svg?seed=Olurotimi Awodiji/svg?randomizeIds=false`} name="Olurotimi Awodiji" position=" awodijio@unijos.edu.ng" level="Senior Lecturer"/>
               <Card img={`https://api.dicebear.com/7.x/initials/svg?seed=Ahmen Tijani Salawudeen/svg?randomizeIds=false`} name="Ahmen Tijani Salawudeen" position="atsalawudeen@unijos.edu" level="Senior Lecturer"/>
               <Card img={`https://api.dicebear.com/7.x/initials/svg?seed=David Etor/svg?randomizeIds=false`}  name="David Etor (Senior Lecturer)" position="etord@unijos.edu.ng" level="Senior Lecturer"/>
@@ -94,6 +96,10 @@ function page() {
               " level="Visting Lecturer"/>
                <Card img={`https://api.dicebear.com/7.x/initials/svg?seed=Aliyu Gadam/svg?randomizeIds=false`}  name="Aliyu Gadam " position="gadama@unijos.edu.ng
               " level="Lecturer"/>
+              <Card img={`https://api.dicebear.com/7.x/initials/svg?seed=Emmanuel Kasai Akut/svg?randomizeIds=false`}  name="Emmanuel Kasai Akut" position="
+              " level="Lecturer"/>
+              
+            
            </Box>
         </Box>
         <Box className="p-4 flex flex-col gap-4 bg-[#fff]">

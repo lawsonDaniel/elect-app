@@ -88,7 +88,7 @@ const Page  = ()=> {
             HOD Electrical Electronics
            </Typography>
            <Typography className="text-white text-thin">
-            Mr John Doe
+            Mr Sunday Iliya
            </Typography>
            </Box>
             </Box>
