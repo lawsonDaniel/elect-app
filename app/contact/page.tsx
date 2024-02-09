@@ -24,10 +24,17 @@ function page() {
            }}  className="text-center tracking-[3px] w-[100%] text-[30px]  lg:text-[45px] md:text-[35px] font-lighter text-white">
            Electrify Your Contact with Us
             </Typography>
+          
         </div>
-        <img className="h-full w-full object-cover" src="img1.jpeg" alt="Image 1" />
+        <img className="h-full w-full object-cover" src="img3.jpeg" alt="Image 1" />
         </Box>
-   
+           <Box className="p-4 flex flex-col gap-4 bg-[#000] text-white items-center justify-center text-[16px]">
+      <Typography variant="body1">University of Jos - Plateau State, Nigeria</Typography>
+      <Typography variant="body1">Address: P M B 2084 Jos</Typography>
+      <Typography variant="body1">93001</Typography>
+      <Typography variant="body1">Phone: +234 3 8376 6284</Typography>
+      <Typography variant="body1">Fax: +234 3 8376 6284</Typography>
+           </Box>
     <Footer/>
   </Box>
   )

@@ -4,6 +4,8 @@ import { Box, Typography } from '@mui/material'
 import Link from 'next/link'
 import Article from '../dashboard/article/viewpost/article'
 import article from '@/app/api/article.class'
+import Header from '@/components/Header'
+
 function Page() {
     const [list,setList]:any = useState([])
     useLayoutEffect(()=>{
@@ -23,7 +25,8 @@ function Page() {
    
     return (
         <Box className="p-4 mb-4 bg-gray-200">
-            <Link href="/#article">Back</Link>
+              <Header/>
+            {/* <Link href="/#article">Back</Link> */}
          
                 <Box className="flex mb-[50px] h-full overflow-auto border-red border p-3 flex-col flex-wrap md:flex-row items-center justify-evenly gap-4 w-full">
                     {

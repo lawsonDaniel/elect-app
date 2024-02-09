@@ -7,6 +7,7 @@ import article from '@/app/api/article.class'
 import draftToHtml from 'draftjs-to-html'
 import { convertFromRaw } from 'draft-js'
 import DOMPurify from 'dompurify';
+import Header from '@/components/Header'
 
 function Page() {
     const pathName = usePathname()
@@ -36,12 +37,18 @@ function Page() {
     },[])
     console.log(list,'listtt')
   return (
-    <Box className="p-4 bg-gray-200">
-    <Link href="/#article">Back</Link>
+    <>
+   <Box className="mb-9">
+   <Header/>
+   </Box>
+    <Box className="p-4 ">
+        
     <Box className="bg-white w-full h-screen overflow-y-auto mt-4">
     <div className="p-6" dangerouslySetInnerHTML={{ __html: html }} />
     </Box>
     </Box>
+    </>
+    
   )
 }
 
