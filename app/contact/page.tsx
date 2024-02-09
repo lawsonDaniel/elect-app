@@ -20,7 +20,8 @@ function page() {
           background:"linear-gradient(0deg, black, #08263dad)"
         }} className="absolute inset-0 flex items-center justify-center bg-[#08263dad] hover:bg-[#08263dde]">
             <Typography style={{
-            fontFamily: "'Libre Baskerville', 'serif'"
+            fontFamily: "'Libre Baskerville', 'serif'",
+            fontSize:'30px'
            }}  className="text-center tracking-[3px] w-[100%] text-[30px]  lg:text-[45px] md:text-[35px] font-lighter text-white">
            Electrify Your Contact with Us
             </Typography>
