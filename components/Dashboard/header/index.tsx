@@ -70,7 +70,7 @@ function Header({users}:any) {
    console.log(user,'user stored')
   return (
     <Box className="flex bg-[#f0f2f5] text-[#546570] md:rounded-[44px]  h-[64px] items-center px-[30px] py-[11px] justify-between">
-       <Typography>IEEE Project</Typography>
+       <Typography>NIEEE Project</Typography>
        <div>
         <Box className="flex gap-2 items-center justify-center">
         <Button
